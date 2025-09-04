@@ -1,67 +1,167 @@
 <script setup>
-import { ref } from 'vue'
-import CalendarPopover from '@/components/CalendarPopover.vue'
+import { ref, computed } from "vue";
 
-const open = defineModel({ type: Boolean, default: false })
-const selectedDate = ref('')
+const open = defineModel({ type: Boolean, default: false });
+const selectedDate = ref(new Date("2025-04-22"));
+
+const weekDays = [
+  { day: 21, label: "Mon" },
+  { day: 22, label: "Tue" },
+  { day: 23, label: "Wed" },
+  { day: 24, label: "Thu" },
+  { day: 25, label: "Fri" },
+  { day: 26, label: "Sat" },
+  { day: 27, label: "Sun" },
+];
+
+const events = [
+  { time: "11:00", label: "Tour: Julie Smith", color: "bg-green-200" },
+  { time: "12:00", label: "Maintenance: #1232", color: "bg-orange-200" },
+];
+
+const leads = ref({
+  mine: 4,
+  verified: 8,
+  unverified: 12,
+});
+
+const leadDetail = ref({
+  name: "Bob Dylan",
+  guidedTour: "Thursday, 4.10.25 @ 10:00 am",
+  result: "",
+  unitShown: "#1232",
+  preferred: "#1002",
+  notes: "",
+});
+
+const displayDate = computed(() => {
+  return new Intl.DateTimeFormat("en", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(selectedDate.value);
+});
 </script>
 
 <template>
-  <v-navigation-drawer v-model="open" location="right" width="420" temporary>
-    <div class="h-full flex flex-col bg-white">
-      <div class="flex items-center justify-between px-5 py-4 border-b">
+  <v-navigation-drawer
+    v-model="open"
+    location="right"
+    width="398"
+    temporary
+    class="rdrawer"
+  >
+    <div class="panel">
+      <!-- Header -->
+      <div class="panel-header">
         <div>
-          <div class="text-sm text-gray-500">Today's To-Dos</div>
-          <div class="text-xs text-gray-400">April 22nd, 2025</div>
+          <h2 class="panel-title">Today's To-Do’s</h2>
+          <p class="panel-subtitle">{{ displayDate }}</p>
         </div>
-        <div class="flex items-center gap-2">
-          <CalendarPopover v-model="selectedDate" />
+        <div class="panel-header-actions">
+          <v-icon>mdi-pencil</v-icon>
+          <v-icon>mdi-calendar</v-icon>
+          <v-icon class="rotate-270">mdi-triangle</v-icon>
+          <v-icon class="rotate-90">mdi-triangle</v-icon>
         </div>
       </div>
 
-      <div class="flex-1 overflow-y-auto px-5 py-4 space-y-6">
-        <section>
-          <div class="text-gray-600 text-sm font-medium mb-2">Upcoming</div>
-          <div class="space-y-3">
-            <div class="rounded-xl border bg-orange-100 px-4 py-3 flex items-center gap-3">
-              <v-checkbox hide-details density="compact"></v-checkbox>
-              <div class="text-sm text-gray-800 flex-1">Call: Abigail Lester</div>
-              <div class="text-xs text-gray-600">10 am</div>
+      <!-- Date Row -->
+      <div class="date-row">
+        <div
+          v-for="day in weekDays"
+          :key="day.day"
+          class="date-cell"
+        >
+          <span
+            class="day"
+            :class="{ 'active': day.day === 22 }"
+          >
+            {{ day.day }}
+          </span>
+          <span
+            class="label"
+            :class="{ 'active': day.day === 22 }"
+          >
+            {{ day.label }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Events -->
+      <div class="content">
+        <div v-for="event in events" :key="event.time" class="event-row">
+          <div class="event-time">{{ event.time }}</div>
+          <div
+            class="event-pill"
+            :class="{ 'green': event.color === 'bg-green-200', 'orange': event.color === 'bg-orange-200' }"
+          >
+            {{ event.label }}
+          </div>
+        </div>
+
+        <!-- Leads -->
+        <div>
+          <div class="leads-header">
+            <span class="leads-title">Leads</span>
+            <a href="#" class="leads-link">View All</a>
+          </div>
+          <div class="leads-cards">
+            <div class="lead-card dark">
+              <div class="num">{{ leads.mine }}</div>
+              <div class="lbl">Mine</div>
             </div>
-            <div class="rounded-xl border bg-blue-100 px-4 py-3 flex items-center gap-3">
-              <v-checkbox hide-details density="compact"></v-checkbox>
-              <div class="text-sm text-gray-800 flex-1">Tour: Julie Smith</div>
-              <div class="text-xs text-gray-600">11 am</div>
+            <div class="lead-card light">
+              <div class="num">{{ leads.verified }}</div>
+              <div class="lbl">Verified</div>
             </div>
-            <div class="rounded-xl border bg-yellow-100 px-4 py-3 flex items-center gap-3">
-              <v-checkbox hide-details density="compact"></v-checkbox>
-              <div class="text-sm text-gray-800 flex-1">Maintenance #1232</div>
-              <div class="text-xs text-gray-600">12:15 pm</div>
-            </div>
-            <div class="rounded-xl border bg-yellow-100 px-4 py-3 flex items-center gap-3">
-              <v-checkbox hide-details density="compact"></v-checkbox>
-              <div class="text-sm text-gray-800 flex-1">Maintenance #2543</div>
-              <div class="text-xs text-gray-600">2:15 pm</div>
+            <div class="lead-card light">
+              <div class="num">{{ leads.unverified }}</div>
+              <div class="lbl">Unverified</div>
             </div>
           </div>
-        </section>
 
-        <section>
-          <div class="text-gray-600 text-sm font-medium mb-2">Completed</div>
-          <ul class="space-y-2 text-sm text-gray-700">
-            <li class="flex items-center gap-2"><v-icon size="18">mdi-check-circle</v-icon> Call: Karen Smith</li>
-            <li class="flex items-center gap-2"><v-icon size="18">mdi-check-circle</v-icon> Email: John Smith</li>
-            <li class="flex items-center gap-2"><v-icon size="18">mdi-check-circle</v-icon> Email: Regina Gardner</li>
-          </ul>
-        </section>
+          <!-- Lead Detail -->
+          <div class="text-xs text-gray-600 mb-2">
+            <p>
+              Lead:
+              <a href="#" class="text-blue-600 underline">{{
+                leadDetail.name
+              }}</a>
+            </p>
+            <p>Guided Tour: {{ leadDetail.guidedTour }}</p>
+          </div>
 
-        <section>
-          <div class="text-gray-600 text-sm font-medium mb-2">Notes</div>
-          <v-textarea variant="outlined" rows="6" placeholder=""></v-textarea>
-        </section>
+          <v-select
+            label="Result"
+            :items="['Completed - Interested', 'Completed - Not Interested']"
+            v-model="leadDetail.result"
+            density="compact"
+          />
+
+          <div class="flex gap-3 my-3">
+            <v-text-field
+              label="Unit Shown"
+              v-model="leadDetail.unitShown"
+              density="compact"
+            />
+            <v-text-field
+              label="Preferred"
+              v-model="leadDetail.preferred"
+              density="compact"
+            />
+          </div>
+
+          <v-textarea
+            label="Notes"
+            v-model="leadDetail.notes"
+            rows="4"
+            density="compact"
+          />
+
+          <v-btn block class="mt-3" color="gray">Update</v-btn>
+        </div>
       </div>
     </div>
   </v-navigation-drawer>
 </template>
-
-<style scoped></style>
