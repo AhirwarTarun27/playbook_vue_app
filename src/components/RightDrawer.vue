@@ -1,5 +1,11 @@
 <script setup>
 import { ref, computed } from "vue";
+import DrawerHeader from "./rightDrawer/DrawerHeader.vue";
+import WeekDateRow from "./rightDrawer/WeekDateRow.vue";
+import EventsList from "./rightDrawer/EventsList.vue";
+import LeadsPanel from "./rightDrawer/LeadsPanel.vue";
+import CalendarPanel from "./rightDrawer/CalendarPanel.vue";
+
 const open = defineModel({ type: Boolean, default: false });
 const selectedDate = ref(new Date("2025-04-22"));
 const showCalendar = ref(false);
@@ -43,6 +49,10 @@ const displayDate = computed(() => {
     year: "numeric",
   }).format(selectedDate.value);
 });
+
+function handleLeadDetailUpdate(next) {
+  leadDetail.value = next;
+}
 </script>
 
 <template>
@@ -54,191 +64,31 @@ const displayDate = computed(() => {
     class="rdrawer"
   >
     <div class="panel">
-      <!-- Calendar Drawer View -->
-      <div v-if="showCalendar" class="content">
-        <!-- Header -->
-        <div class="panel-header">
-          <div>
-            <h2 class="panel-title">My Calendar</h2>
-            <p class="panel-subtitle">{{ displayDate }}</p>
-          </div>
-          <div class="panel-header-actions">
-            <v-icon @click="showCalendar = true">mdi-pencil</v-icon>
-            <v-icon>mdi-cog</v-icon>
-          </div>
-        </div>
-        <v-date-picker v-model="selectedDate" elevation="0"></v-date-picker>
-
-        <div class="horizontal-line"></div>
-
-        <div>
-          <h2 class="week-view">Week View</h2>
-        </div>
-        <!-- Date Row -->
-
-        <div class="date-row">
-          <div v-for="day in weekDays" :key="day.day" class="date-cell">
-            <div class="day-wrapper">
-              <span class="day" :class="{ active: day.day === 22 }">
-                {{ day.day }}
-              </span>
-            </div>
-            <span class="label" :class="{ active: day.day === 22 }">
-              {{ day.label }}
-            </span>
-          </div>
-        </div>
-
-        <div class="d-flex justify-end mt-3">
-          <div class="updateBtn-container">
-            <button class="updateBtn" @click="showCalendar = false">
-              Back
-            </button>
-          </div>
-        </div>
+      <div v-if="showCalendar">
+        <CalendarPanel
+          :date="selectedDate"
+          :week-days="weekDays"
+          @update:date="value => (selectedDate = value)"
+          @back="showCalendar = false"
+        />
       </div>
-
-      <!-- Default Drawer Content -->
       <template v-else>
-        <!-- Header -->
-        <div class="panel-header">
-          <div>
-            <h2 class="panel-title">Today's To-Do’s</h2>
-            <p class="panel-subtitle">{{ displayDate }}</p>
-          </div>
-          <div class="panel-header-actions">
-            <v-icon>mdi-pencil</v-icon>
-            <v-icon @click="showCalendar = true">mdi-calendar</v-icon>
-            <v-icon style="transform: rotate(270deg)">mdi-triangle</v-icon>
-            <v-icon style="transform: rotate(90deg)">mdi-triangle</v-icon>
-          </div>
-        </div>
-        <!-- Date Row -->
-        <div class="date-row">
-          <div v-for="day in weekDays" :key="day.day" class="date-cell">
-            <div class="day-wrapper">
-              <span class="day" :class="{ active: day.day === 22 }">
-                {{ day.day }}
-              </span>
-            </div>
-            <span class="label" :class="{ active: day.day === 22 }">
-              {{ day.label }}
-            </span>
-          </div>
-        </div>
-
-        <!-- Events -->
+        <DrawerHeader
+          title="Today's To-Do’s"
+          :subtitle="displayDate"
+          :show-calendar-action="true"
+          @calendar="showCalendar = true"
+        />
+        <WeekDateRow :days="weekDays" :active-day="22" />
         <div class="content">
-          <div v-for="event in events" :key="event.time" class="event-row">
-            <div class="event-time">{{ event.time }}</div>
-            <div
-              class="event-pill"
-              :class="{
-                green: event.color === 'bg-green-200',
-                orange: event.color === 'bg-orange-200',
-              }"
-            >
-              {{ event.label }}
-            </div>
-          </div>
-
+          <EventsList :events="events" />
           <div class="horizontal-line"></div>
-          <!-- Leads -->
-          <div>
-            <div class="leads-header">
-              <span class="leads-title">Leads</span>
-              <a href="#" class="leads-link">View All</a>
-            </div>
-            <div class="leads-cards">
-              <div class="lead-card dark">
-                <div class="num">{{ leads.mine }}</div>
-                <div class="lbl">Mine</div>
-              </div>
-              <div class="lead-card light">
-                <div class="num">{{ leads.verified }}</div>
-                <div class="lbl">Verified</div>
-              </div>
-              <div class="lead-card light">
-                <div class="num">{{ leads.unverified }}</div>
-                <div class="lbl">Unverified</div>
-              </div>
-            </div>
-
-            <!-- Lead Detail -->
-            <div class="text-xs text-gray-600 mb-2">
-              <p>
-                <span class="lead-name">Lead:</span>
-                <a href="#" class="text-blue-600 underline lead-name-link">{{
-                  leadDetail.name
-                }}</a>
-              </p>
-              <div>
-                <span class="guidedtour">Guided Tour:</span>
-                <span class="guidedtour-name">{{ leadDetail.guidedTour }}</span>
-              </div>
-            </div>
-
-            <!-- Result -->
-            <div class="mb-3">
-              <label class="block text-sm text-gray-600 mb-1">Result</label>
-              <v-select
-                :items="[
-                  'Completed - Interested',
-                  'Completed - Not Interested',
-                ]"
-                v-model="leadDetail.result"
-                variant="outlined"
-                density="compact"
-                class="custom-select"
-                hide-details
-              />
-            </div>
-
-            <!-- Unit Shown & Preferred -->
-            <div style="display: flex; column-gap: 10px">
-              <div>
-                <label class="block text-sm text-gray-600 mb-1"
-                  >Unit Shown</label
-                >
-                <v-select
-                  v-model="leadDetail.unitShown"
-                  variant="outlined"
-                  density="compact"
-                  class="small-input"
-                  hide-details
-                />
-              </div>
-
-              <div>
-                <label class="block text-sm text-gray-600 mb-1"
-                  >Preferred</label
-                >
-                <v-select
-                  v-model="leadDetail.preferred"
-                  variant="outlined"
-                  density="compact"
-                  class="small-input"
-                  hide-details
-                />
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-sm text-gray-600 mb-1">Notes</label>
-              <v-textarea
-                label="Notes"
-                v-model="leadDetail.notes"
-                rows="4"
-                density="compact"
-              />
-            </div>
-
-            <div class="d-flex justify-end mt-3">
-              <div class="updateBtn-container">
-                <button class="updateBtn">Update</button>
-              </div>
-            </div>
-          </div>
+          <LeadsPanel
+            :stats="leads"
+            :detail="leadDetail"
+            @update:detail="handleLeadDetailUpdate"
+            @submit="() => {}"
+          />
         </div>
       </template>
     </div>
