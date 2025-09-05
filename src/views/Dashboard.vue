@@ -190,7 +190,7 @@ const clearFilters = () => {
               class="search-input"
             />
             <div class="search-icon">
-              <SvgIcon size="sm" />
+              <SvgIcon name="search" size="sm" />
             </div>
           </div>
         </div>
@@ -198,18 +198,18 @@ const clearFilters = () => {
           <!-- Add Button -->
           <div class="action-add-btn">
             <v-btn icon>
-              <SvgIcon color="white" size="sm" />
+              <SvgIcon name="plus" color="white" size="lg" />
             </v-btn>
           </div>
 
           <!-- Notifications -->
           <div class="cursor-pointer">
-            <SvgIcon />
+            <SvgIcon name="bell"/>
           </div>
 
           <!-- Theme Toggle -->
           <div class="theme-toggle" @click="toggleTheme">
-            <SvgIcon />
+           <SvgIcon :name="isDarkTheme ? 'moon' : 'sun'" :color="isDarkTheme ? 'black' : 'white'" />
           </div>
 
           <!-- User Avatar Section -->
