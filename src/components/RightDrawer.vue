@@ -21,10 +21,20 @@ const weekDays = [
 ];
 
 const events = [
-  { time: "11:00", label: "Tour: Julie Smith", color: "bg-green-200" },
-  { time: "12:00", label: "", color: "" },
-  { time: "13:00", label: "Maintenance: #1232", color: "bg-orange-200" },
-  { time: "14:00", label: "Maintenance: #1232", color: "bg-orange-200" },
+  { 
+    startTime: "11:00", 
+    endTime: "12:00", 
+    label: "Tour: Julie Smith", 
+    color: "green", 
+    completed: false 
+  },
+  { 
+    startTime: "13:00", 
+    endTime: "14:00", 
+    label: "Maintenance: #1232", 
+    color: "orange", 
+    completed: false 
+  },
 ];
 
 const leads = ref({
@@ -52,6 +62,15 @@ const displayDate = computed(() => {
 
 function handleLeadDetailUpdate(next) {
   leadDetail.value = next;
+}
+
+function handleToggleEvent(event) {
+  const eventIndex = events.findIndex(e => 
+    e.startTime === event.startTime && e.label === event.label
+  );
+  if (eventIndex !== -1) {
+    events[eventIndex].completed = !events[eventIndex].completed;
+  }
 }
 </script>
 
@@ -81,7 +100,7 @@ function handleLeadDetailUpdate(next) {
         />
         <WeekDateRow :days="weekDays" :active-day="22" />
         <div class="content">
-          <EventsList :events="events" />
+          <EventsList :events="events" @toggleEvent="handleToggleEvent" />
           <div class="horizontal-line"></div>
           <LeadsPanel
             :stats="leads"
