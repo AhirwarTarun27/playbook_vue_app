@@ -1,12 +1,14 @@
 <script setup>
-import { ref, watch } from 'vue'
-import { useTheme } from 'vuetify'
+import { ref, onMounted } from 'vue'
 import RightDrawer from '@/components/RightDrawer.vue'
+import SvgIcon from '@/components/SvgIcon.vue' // Import your SVG component
 
 defineOptions({ name: 'DashboardView' })
 
 const drawerOpen = ref(false)
 const searchQuery = ref('')
+const isDarkTheme = ref(false)
+
 const selectedFilters = ref({
   inquiries: false,
   preTour: false,
@@ -90,13 +92,15 @@ const items = ref([
   }
 ])
 
-// Vuetify theme switching
-const availableThemes = ['light', 'dark', 'forest']
-const theme = useTheme()
-const selectedTheme = ref(theme.global.name.value)
+// Theme switching
+const toggleTheme = () => {
+  isDarkTheme.value = !isDarkTheme.value
+  document.documentElement.setAttribute('data-theme', isDarkTheme.value ? 'dark' : 'light')
+}
 
-watch(selectedTheme, (name) => {
-  theme.global.name.value = name
+// Initialize theme
+onMounted(() => {
+  document.documentElement.setAttribute('data-theme', 'light')
 })
 
 const toggleFilter = (filter) => {
@@ -108,6 +112,7 @@ const clearFilters = () => {
     selectedFilters.value[key] = false
   })
 }
+
 </script>
 
 <template>
@@ -116,27 +121,60 @@ const clearFilters = () => {
     <aside class="sidebar">
       <!-- Logo -->
       <div class="logo">
-        <v-icon color="white" size="24">mdi-home</v-icon>
+        <SvgIcon name="home" style="width: 32px; height: 39px;" color="white" />
       </div>
       
-      <!-- Icons -->
+      <!-- Navigation Icons -->
       <div class="icon-list">
-        <v-icon color="white" size="24" class="cursor-pointer">mdi-view-dashboard</v-icon>
-        <v-icon color="#9CA3AF" size="24" class="hover:text-white cursor-pointer transition-colors">mdi-account-group-outline</v-icon>
-        <v-icon color="#9CA3AF" size="24" class="hover:text-white cursor-pointer transition-colors">mdi-domain</v-icon>
-        <v-icon color="#9CA3AF" size="24" class="hover:text-white cursor-pointer transition-colors">mdi-account-outline</v-icon>
-        <v-icon color="#9CA3AF" size="24" class="hover:text-white cursor-pointer transition-colors">mdi-file-document-outline</v-icon>
-        <v-icon color="#9CA3AF" size="24" class="hover:text-white cursor-pointer transition-colors">mdi-lock-outline</v-icon>
-        <v-icon color="#9CA3AF" size="24" class="hover:text-white cursor-pointer transition-colors">mdi-wrench-outline</v-icon>
-        <v-icon color="#9CA3AF" size="24" class="hover:text-white cursor-pointer transition-colors">mdi-cog-outline</v-icon>
-        <v-icon color="#9CA3AF" size="24" class="hover:text-white cursor-pointer transition-colors">mdi-chart-line</v-icon>
+        <div class="sidebar-icon">
+          <SvgIcon name="dashboard" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="users" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="building" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="user" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="file" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="lock" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="wrench" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="msg" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="phone" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="calender" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="three-verticle-line" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="phone" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon name="phone" :color="isDarkTheme ? '#374151' : 'white'" />
+        </div>
       </div>
       
       <!-- Bottom icons -->
-      <div class="flex-grow"></div>
       <div class="sidebar-bottom">
-        <v-icon color="#9CA3AF" size="24" class="hover:text-white cursor-pointer transition-colors">mdi-cog</v-icon>
-        <v-icon color="#9CA3AF" size="24" class="hover:text-white cursor-pointer transition-colors">mdi-help-circle-outline</v-icon>
+        <div class="sidebar-icon">
+          <SvgIcon :color="isDarkTheme ? '#374151' : '#9CA3AF'" />
+        </div>
+        <div class="sidebar-icon">
+          <SvgIcon :color="isDarkTheme ? '#374151' : '#9CA3AF'" />
+        </div>
       </div>
     </aside>
 
@@ -151,237 +189,243 @@ const clearFilters = () => {
               placeholder="Search Properties, Leads, etc..."
               class="search-input"
             />
-            <v-icon color="#9CA3AF" size="20" class="search-icon">mdi-magnify</v-icon>
+            <div class="search-icon">
+              <SvgIcon size="sm" />
+            </div>
           </div>
         </div>
         <div class="topbar-right">
-          <!-- FIXED: Only round + button -->
+          <!-- Add Button -->
           <div class="action-add-btn">
             <v-btn icon>
-              <v-icon color="white" size="22">mdi-plus</v-icon>
+              <SvgIcon color="white" size="sm" />
             </v-btn>
           </div>
 
-          <v-icon color="white" size="24" class="cursor-pointer hover:text-[#6FCF4F] transition-colors">mdi-bell-outline</v-icon>
-          <div class="flex items-center gap-3 avatar-ring">
-            <div class="text-right">
-              <div class="text-white text-sm font-medium">Naomi R.</div>
-              <div class="text-gray-400 text-xs">Property Mgr</div>
-            </div>
-            <v-avatar size="32">
-              <div class="w-full h-full bg-gray-400 rounded-full"></div>
-            </v-avatar>
+          <!-- Notifications -->
+          <div class="cursor-pointer">
+            <SvgIcon />
           </div>
-          <v-select
-            v-model="selectedTheme"
-            :items="availableThemes"
-            density="compact"
-            hide-details
-            label="Theme"
-            style="max-width: 140px"
-          />
+
+          <!-- Theme Toggle -->
+          <div class="theme-toggle" @click="toggleTheme">
+            <SvgIcon />
+          </div>
+
+          <!-- User Avatar Section -->
+          <div class="avatar-section">
+            <div class="user-info">
+              <div class="user-name">Naomi R.</div>
+              <div class="user-role">Property Mgr</div>
+            </div>
+            <div class="avatar-ring"></div>
+          </div>
         </div>
       </div>
 
       <!-- Main Content Area -->
       <div class="content">
-        <!-- Outer wrapper to add spacing all around -->
+        <!-- Outer wrapper -->
         <div class="outer-wrapper">
-          <!-- White Container -->
-          <div class="white-container">
-            <!-- Header Section -->
-            <div class="section-header">
-              <div class="title">
-                <h1>Playbooks</h1>
-                <v-icon size="18" color="#6B7280" class="cursor-pointer hover:text-gray-800 transition-colors">mdi-pencil</v-icon>
-              </div>
-              <div class="header-actions">
-                <div class="org-select">
-                  <select class="cursor-pointer pr-10">
-                    <option>XYZ Properties</option>
-                  </select>
-                  <v-icon size="18" color="#6B7280" class="search-icon pointer-events-none">mdi-chevron-down</v-icon>
-                </div>
-                <v-icon size="22" color="#6B7280" class="cursor-pointer hover:text-gray-800 transition-colors">mdi-filter-variant</v-icon>
+          <!-- Header Section -->
+          <div class="section-header">
+            <div class="title">
+              <h1>Playbooks</h1>
+              <div class="cursor-pointer">
+                <SvgIcon size="sm" />
               </div>
             </div>
-
-            <!-- Stats Cards -->
-            <div class="stats">
-              <div class="stat-cards">
-                <!-- Default Card (Selected) -->
-                <div class="card card-selected">
-                  <div class="flex justify-between items-start mb-4">
-                    <div class="icon-circle">
-                      <v-icon color="white" size="20">mdi-account-circle</v-icon>
-                    </div>
-                  </div>
-                  <div class="label">Default</div>
-                  <div class="value">140</div>
+            <div class="header-actions">
+              <div class="org-select">
+                <select class="cursor-pointer">
+                  <option>XYZ Properties</option>
+                </select>
+                <div class="search-icon">
+                  <SvgIcon size="sm" />
                 </div>
+              </div>
+              <div class="cursor-pointer">
+                <SvgIcon />
+              </div>
+            </div>
+          </div>
 
-                <!-- Hard Hat Card -->
-                <div class="card">
-                  <div class="flex justify-between items-start mb-4">
-                    <div class="icon-circle" style="background:#E9D5FF;">
-                      <v-icon color="#8B5CF6" size="20">mdi-hard-hat</v-icon>
-                    </div>
-                  </div>
-                  <div class="label">Hard Hat</div>
-                  <div class="value">16</div>
+          <!-- Stats Cards -->
+          <div class="stats">
+            <div class="stat-cards">
+              <!-- Default Card (Selected) -->
+              <div class="card card-selected">
+                <div class="icon-circle" style="background: rgba(255,255,255,0.2);">
+                  <SvgIcon color="white" size="sm" />
                 </div>
+                <div class="label">Default</div>
+                <div class="value">140</div>
+              </div>
 
-                <!-- Affordable Card -->
-                <div class="card">
-                  <div class="flex justify-between items-start mb-4">
-                    <div class="icon-circle" style="background:#DBEAFE;">
-                      <span style="color:#2563EB;font-weight:700;font-size:20px;">$</span>
-                    </div>
-                  </div>
-                  <div class="label">Affordable</div>
-                  <div class="value">34</div>
+              <!-- Hard Hat Card -->
+              <div class="card">
+                <div class="icon-circle" style="background:#E9D5FF;">
+                  <SvgIcon color="#8B5CF6" size="sm" />
                 </div>
+                <div class="label">Hard Hat</div>
+                <div class="value">16</div>
+              </div>
 
-                <!-- Multi-Family Card -->
-                <div class="card">
-                  <div class="flex justify-between items-start mb-4">
-                    <div class="icon-circle" style="background:#E9D5FF;">
-                      <v-icon color="#8B5CF6" size="20">mdi-account-group</v-icon>
-                    </div>
-                  </div>
-                  <div class="label">Multi-Family</div>
-                  <div class="value">120</div>
+              <!-- Affordable Card -->
+              <div class="card">
+                <div class="icon-circle" style="background:#DBEAFE;">
+                  <SvgIcon color="#2563EB" size="sm" />
                 </div>
+                <div class="label">Affordable</div>
+                <div class="value">34</div>
+              </div>
 
-                <!-- Add New Card -->
-                <div class="add-card" @click="drawerOpen = true">
-                  <div class="action-add-btn">
-                    <v-btn icon size="large">
-                      <v-icon color="white" size="24">mdi-plus</v-icon>
-                    </v-btn>
-                  </div>
+              <!-- Multi-Family Card -->
+              <div class="card">
+                <div class="icon-circle" style="background:#E9D5FF;">
+                  <SvgIcon color="#8B5CF6" size="sm" />
+                </div>
+                <div class="label">Multi-Family</div>
+                <div class="value">120</div>
+              </div>
+
+              <!-- Add New Card -->
+              <div class="add-card" @click="drawerOpen = true">
+                <div class="action-add-btn">
+                  <v-btn icon size="large">
+                    <SvgIcon color="white" />
+                  </v-btn>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Filter Buttons and Search -->
-            <div class="filters">
-              <div class="filters-left">
-                <button 
-                  class="btn"
-                  :class="selectedFilters.inquiries ? 'btn-active' : ''"
-                  @click="toggleFilter('inquiries')"
-                >
-                  Inquiries
-                </button>
-                <button 
-                  class="btn"
-                  :class="selectedFilters.preTour ? 'btn-active' : ''"
-                  @click="toggleFilter('preTour')"
-                >
-                  Pre-Tour
-                </button>
-                <button 
-                  class="btn"
-                  :class="selectedFilters.interested ? 'btn-active' : ''"
-                  @click="toggleFilter('interested')"
-                >
-                  Interested
-                </button>
-                <button 
-                  class="btn"
-                  :class="selectedFilters.noShows ? 'btn-active' : ''"
-                  @click="toggleFilter('noShows')"
-                >
-                  No Shows
-                </button>
-                <button 
-                  class="btn"
-                  :class="selectedFilters.notInterested ? 'btn-active' : ''"
-                  @click="toggleFilter('notInterested')"
-                >
-                  Not Interested
-                </button>
-              </div>
-              
-              <div class="filters-right">
-                <div class="search-small">
-                  <input 
-                    v-model="searchQuery"
-                    type="text" 
-                    placeholder="Search Prospect"
-                    class=""
-                  />
-                  <v-icon size="18" color="#6B7280" class="search-icon">mdi-magnify</v-icon>
-                </div>
-                <button class="btn">
-                  <v-icon size="16">mdi-filter-variant</v-icon>
-                  Filter
-                </button>
-                <button 
-                  class="btn btn-plain"
-                  @click="clearFilters"
-                >
-                  Clear
-                </button>
-                <button class="btn btn-dark">
-                  Search
-                </button>
-              </div>
+          <!-- Filter Buttons and Search -->
+          <div class="filters">
+            <div class="filters-left">
+              <button 
+                class="btn"
+                :class="selectedFilters.inquiries ? 'btn-active' : ''"
+                @click="toggleFilter('inquiries')"
+              >
+                Inquiries
+              </button>
+              <button 
+                class="btn"
+                :class="selectedFilters.preTour ? 'btn-active' : ''"
+                @click="toggleFilter('preTour')"
+              >
+                Pre-Tour
+              </button>
+              <button 
+                class="btn"
+                :class="selectedFilters.interested ? 'btn-active' : ''"
+                @click="toggleFilter('interested')"
+              >
+                Interested
+              </button>
+              <button 
+                class="btn"
+                :class="selectedFilters.noShows ? 'btn-active' : ''"
+                @click="toggleFilter('noShows')"
+              >
+                No Shows
+              </button>
+              <button 
+                class="btn"
+                :class="selectedFilters.notInterested ? 'btn-active' : ''"
+                @click="toggleFilter('notInterested')"
+              >
+                Not Interested
+              </button>
             </div>
-
-            <!-- Table -->
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th style="width:48px;">
-                      <input type="checkbox" />
-                    </th>
-                    <th>Name</th>
-                    <th>Property</th>
-                    <th>Status</th>
-                    <th>Play / Trigger</th>
-                    <th>Date of Inquiry</th>
-                    <th class="center">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr 
-                    v-for="item in items" 
-                    :key="item.id"
-                  >
-                    <td>
-                      <input 
-                        type="checkbox" 
-                        v-model="item.selected"
-                      />
-                    </td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.property }}</td>
-                    <td>{{ item.status }}</td>
-                    <td>{{ item.play }}</td>
-                    <td>{{ item.date }}</td>
-                    <td class="center">
-                      <v-icon size="20" color="#6B7280" class="cursor-pointer hover:text-gray-900 transition-colors">mdi-dots-vertical</v-icon>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination -->
-            <div class="pagination">
-              <div class="group">
-                <div class="flex items-center gap-2">
-                  <span>Rows per page:</span>
-                  <span class="font-medium">9</span>
-                  <v-icon size="16" class="text-gray-400">mdi-menu-down</v-icon>
+            
+            <div class="filters-right">
+              <div class="search-small">
+                <input 
+                  v-model="searchQuery"
+                  type="text" 
+                  placeholder="Search Prospect"
+                />
+                <div class="search-icon">
+                  <SvgIcon size="sm" />
                 </div>
-                <span class="font-medium">1-4 of 36</span>
-                <div class="flex items-center gap-2">
-                  <v-icon size="20" color="#6B7280" class="cursor-pointer hover:text-gray-900 transition-colors">mdi-chevron-left</v-icon>
-                  <v-icon size="20" color="#6B7280" class="cursor-pointer hover:text-gray-900 transition-colors">mdi-chevron-right</v-icon>
+              </div>
+              <button class="btn">
+                <SvgIcon size="sm" />
+                Filter
+              </button>
+              <button 
+                class="btn btn-plain"
+                @click="clearFilters"
+              >
+                Clear
+              </button>
+              <button class="btn btn-dark">
+                Search
+              </button>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <input type="checkbox" />
+                  </th>
+                  <th>Name</th>
+                  <th>Property</th>
+                  <th>Status</th>
+                  <th>Play / Trigger</th>
+                  <th>Date of Inquiry</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr 
+                  v-for="item in items" 
+                  :key="item.id"
+                >
+                  <td>
+                    <input 
+                      type="checkbox" 
+                      v-model="item.selected"
+                    />
+                  </td>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.property }}</td>
+                  <td>{{ item.status }}</td>
+                  <td>{{ item.play }}</td>
+                  <td>{{ item.date }}</td>
+                  <td class="text-center">
+                    <div class="cursor-pointer">
+                      <SvgIcon size="sm" />
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <div class="group">
+              <div class="pagination-control">
+                <span>Rows per page:</span>
+                <span style="font-weight: 500;">9</span>
+                <div class="cursor-pointer">
+                  <SvgIcon size="sm" />
+                </div>
+              </div>
+              <span style="font-weight: 500;">1-4 of 36</span>
+              <div class="pagination-control">
+                <div class="cursor-pointer">
+                  <SvgIcon size="sm" />
+                </div>
+                <div class="cursor-pointer">
+                  <SvgIcon size="sm" />
                 </div>
               </div>
             </div>
@@ -394,4 +438,7 @@ const clearFilters = () => {
   </div>
 </template>
 
-<!-- Styles moved to src/assets/dashboard.css -->
+<style scoped>
+/* Import the dashboard styles */
+@import '@/assets/dashboard.css';
+</style>
