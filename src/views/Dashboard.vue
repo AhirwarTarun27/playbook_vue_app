@@ -121,7 +121,7 @@ const clearFilters = () => {
     <aside class="sidebar">
       <!-- Logo -->
       <div class="logo">
-        <SvgIcon name="home" style="width: 32px; height: 39px;" color="white" />
+        <SvgIcon name="home" style="width: 30.245px; height: 37.593px; flex-shrink: 0; aspect-ratio: 30.24/37.59;" color="white" />
       </div>
       
       <!-- Navigation Icons -->
@@ -135,10 +135,11 @@ const clearFilters = () => {
         <div class="sidebar-icon">
           <SvgIcon name="building" :color="isDarkTheme ? '#374151' : 'white'" />
         </div>
+        <div class="borderline"></div>
         <div class="sidebar-icon">
           <SvgIcon name="user" :color="isDarkTheme ? '#374151' : 'white'" />
         </div>
-        <div class="sidebar-icon">
+        <div class="sidebar-icon" style="margin-left: 0.4rem;">
           <SvgIcon name="file" :color="isDarkTheme ? '#374151' : 'white'" />
         </div>
         <div class="sidebar-icon">
@@ -165,8 +166,8 @@ const clearFilters = () => {
         <div class="sidebar-icon">
           <SvgIcon name="upgraph" :color="isDarkTheme ? '#374151' : 'white'" />
         </div>
+        <div class="borderline"></div>
       </div>
-      
       <!-- Bottom icons -->
       <div class="sidebar-bottom">
         <div class="sidebar-icon">
@@ -196,29 +197,32 @@ const clearFilters = () => {
         </div>
         <div class="topbar-right">
           <!-- Add Button -->
-          <div class="action-add-btn">
-            <v-btn icon>
-              <SvgIcon name="plus" color="white" size="lg" />
-            </v-btn>
-          </div>
+           <div class="topbar-actions">
 
-          <!-- Notifications -->
-          <div class="cursor-pointer">
-            <SvgIcon name="bell"/>
-          </div>
-
-          <!-- Theme Toggle -->
-          <div class="theme-toggle" @click="toggleTheme">
-           <SvgIcon :name="isDarkTheme ? 'moon' : 'sun'" :color="isDarkTheme ? 'black' : 'white'" />
-          </div>
+             <div class="action-add-btn" style="margin-bottom: 1rem; margin-right: 0.5rem;">
+               <v-btn icon>
+                 <SvgIcon name="plus" size="lg" />
+               </v-btn>
+             </div>
+   
+             <!-- Notifications -->
+             <div class="cursor-pointer">
+               <SvgIcon name="bell" :color="isDarkTheme ? '#374151' : 'white'"/>
+             </div>
+   
+             <!-- Theme Toggle -->
+             <div class="theme-toggle" @click="toggleTheme">
+              <SvgIcon :name="isDarkTheme ? 'moon' : 'sun'" :color="isDarkTheme ? 'black' : 'white'" />
+             </div>
+           </div>
 
           <!-- User Avatar Section -->
           <div class="avatar-section">
             <div class="user-info">
-              <div class="user-name">Naomi R.</div>
+              <div class="user-name">Naomi R.</div> 
               <div class="user-role">Property Mgr</div>
             </div>
-            <div class="avatar-ring"></div>
+            <div class="avatar-ring"><img src="/home/tarun/Documents/Practice_projects/demo-vue-app/src/assets/icons/image.png" alt=""></div>
           </div>
         </div>
       </div>
@@ -232,7 +236,7 @@ const clearFilters = () => {
             <div class="title">
               <h1>Playbooks</h1>
               <div class="cursor-pointer">
-                <SvgIcon size="sm" />
+                <SvgIcon name="pencil" size="md" style="margin-top: .5rem;"/>
               </div>
             </div>
             <div class="header-actions">
@@ -255,45 +259,57 @@ const clearFilters = () => {
             <div class="stat-cards">
               <!-- Default Card (Selected) -->
               <div class="card card-selected">
-                <div class="icon-circle" style="background: rgba(255,255,255,0.2);">
-                  <SvgIcon color="white" size="sm" />
+                <div class="icon-circle" >
+                  <SvgIcon name="book" color="white" style="width: 17px; height: 21px;" />
                 </div>
-                <div class="label">Default</div>
-                <div class="value">140</div>
+                <div class="card-info">
+                  <div class="label">Default</div>
+                  <div class="value">140</div>
+                </div>
               </div>
 
               <!-- Hard Hat Card -->
               <div class="card">
-                <div class="icon-circle" style="background:#E9D5FF;">
+                <div class="icon-circle">
                   <SvgIcon color="#8B5CF6" size="sm" />
                 </div>
-                <div class="label">Hard Hat</div>
-                <div class="value">16</div>
+                 <div class="card-info">
+
+                   <div class="label">Hard Hat</div>
+                   <div class="value">16</div>
+                 </div>
               </div>
 
               <!-- Affordable Card -->
               <div class="card">
-                <div class="icon-circle" style="background:#DBEAFE;">
+                <div class="icon-circle" >
                   <SvgIcon color="#2563EB" size="sm" />
                 </div>
-                <div class="label">Affordable</div>
-                <div class="value">34</div>
+                 <div class="card-info">
+
+                   <div class="label">Affordable</div>
+                   <div class="value">34</div>
+                 </div>
               </div>
 
               <!-- Multi-Family Card -->
               <div class="card">
-                <div class="icon-circle" style="background:#E9D5FF;">
+                <div class="icon-circle" >
                   <SvgIcon color="#8B5CF6" size="sm" />
                 </div>
-                <div class="label">Multi-Family</div>
-                <div class="value">120</div>
+                 <div class="card-info">
+
+                   <div class="label">Multi-Family</div>
+                   <div class="value">120</div>
+                 </div>
               </div>
 
+              <div class="verticalBorder"></div>
               <!-- Add New Card -->
               <div class="add-card" @click="drawerOpen = true">
                 <div class="action-add-btn">
                   <v-btn icon size="large">
-                    <SvgIcon color="white" />
+                    <SvgIcon name="plus" size="lg" color="white" />
                   </v-btn>
                 </div>
               </div>

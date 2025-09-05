@@ -34,6 +34,9 @@ import PlusIcon from '@/assets/icons/PlusIcon.vue'
 import BellIcon from '@/assets/icons/BellIcon.vue'
 import SunIcon from '@/assets/icons/SunIcon.vue'
 import MoonIcon from '@/assets/icons/MoonIcon.vue'
+import PencilIcon from '@/assets/icons/PencilIcon.vue'
+import BookIcon from '@/assets/icons/BookIcon.vue'
+import FormalIcon from '@/assets/icons/FormalIcon.vue'
 // import EditIcon from '@/assets/icons/EditIcon.vue'
 // import FilterIcon from '@/assets/icons/FilterIcon.vue'
 // import ChevronDownIcon from '@/assets/icons/ChevronDownIcon.vue'
@@ -69,6 +72,10 @@ export default {
     BellIcon,
     SunIcon,
     MoonIcon,
+    PencilIcon,
+    BookIcon,
+    FormalIcon
+
     // EditIcon,
     // FilterIcon,
     // ChevronDownIcon,
@@ -83,7 +90,9 @@ export default {
       required: true,
       validator: (value) => [
         'home', 'dashboard', 'users', 'building', 'user', 'file',
-        'lock','msg', 'wrench', 'settings', 'chart', 'search', 'plus', 'phone', 'calender', 'clipbord', 'three-verticle-line', 'upgraph', 'info',
+        'lock', 'msg', 'wrench', 'settings', 'chart', 'search', 'plus', 'phone', 'calender', 'clipbord', 'three-verticle-line', 'upgraph', 'info', 'pencil',
+'formal',
+        'book',
         'bell', 'sun', 'moon', 'edit', 'filter', 'chevron-down',
         'dots-vertical', 'chevron-left', 'chevron-right', 'help'
       ].includes(value)
@@ -137,6 +146,9 @@ export default {
         'bell': 'BellIcon',
         'sun': 'SunIcon',
         'moon': 'MoonIcon',
+        'pencil': 'PencilIcon',
+        'book': 'BookIcon',
+        'formal': 'FormalIcon',
         'edit': 'EditIcon',
         'filter': 'FilterIcon',
         'chevron-down': 'ChevronDownIcon',
