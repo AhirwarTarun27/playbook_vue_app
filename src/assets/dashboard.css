@@ -1,5 +1,3 @@
-/* Dashboard page styles (replaces Tailwind utilities) */
-
 /* Light theme (default) */
 :root {
   --bg-primary: #ffffff;
@@ -8,8 +6,8 @@
   --text-primary: #1a1a1a;
   --text-secondary: #6b7280;
   --text-light: #9ca3af;
-  --brand: #22c55e;
-  --brand-hover: #16a34a;
+  --brand: #86cf37;
+  --brand-hover: #86cf37;
   --border: #e5e7eb;
   --border-light: #f3f4f6;
   --surface: #ffffff;
@@ -28,8 +26,8 @@
   --text-primary: #ffffff;
   --text-secondary: #d1d5db;
   --text-light: #6b7280;
-  --brand: #22c55e;
-  --brand-hover: #16a34a;
+  --brand: #86cf37;
+  --brand-hover: #86cf37;
   --border: #374151;
   --border-light: #4b5563;
   --surface: #1f2937;
@@ -165,7 +163,8 @@
 
 .action-add-btn .v-btn {
   background: var(--brand) !important;
-  border-radius: 50% !important;
+  /* border-radius: 50% !important; */
+
   width: 36px !important;
   height: 36px !important;
   box-shadow: none !important;
@@ -184,7 +183,8 @@
 }
 
 .theme-toggle:hover {
-  background: var(--surface-alt);
+  /* background: var(--surface-alt); */
+  color: var(--text-primary);
 }
 
 .avatar-section {

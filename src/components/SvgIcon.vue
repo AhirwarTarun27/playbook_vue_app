@@ -29,11 +29,11 @@ import Clipbord from '@/assets/icons/sideNavBar/ClipbordIcon.vue'
 import UpGraph from '@/assets/icons/sideNavBar/UpGraph.vue'
 import SettingsIcon from '@/assets/icons/sideNavBar/SettingsIcon.vue'
 import InfoIcon from '@/assets/icons/sideNavBar/InfoIcon.vue'
-// import SearchIcon from '@/assets/icons/SearchIcon.vue'
-// import PlusIcon from '@/assets/icons/PlusIcon.vue'
-// import BellIcon from '@/assets/icons/BellIcon.vue'
-// import SunIcon from '@/assets/icons/SunIcon.vue'
-// import MoonIcon from '@/assets/icons/MoonIcon.vue'
+import SearchIcon from '@/assets/icons/SearchIcon.vue'
+import PlusIcon from '@/assets/icons/PlusIcon.vue'
+import BellIcon from '@/assets/icons/BellIcon.vue'
+import SunIcon from '@/assets/icons/SunIcon.vue'
+import MoonIcon from '@/assets/icons/MoonIcon.vue'
 // import EditIcon from '@/assets/icons/EditIcon.vue'
 // import FilterIcon from '@/assets/icons/FilterIcon.vue'
 // import ChevronDownIcon from '@/assets/icons/ChevronDownIcon.vue'
@@ -64,11 +64,11 @@ export default {
     
     SettingsIcon,
     InfoIcon,
-    // SearchIcon,
-    // PlusIcon,
-    // BellIcon,
-    // SunIcon,
-    // MoonIcon,
+    SearchIcon,
+    PlusIcon,
+    BellIcon,
+    SunIcon,
+    MoonIcon,
     // EditIcon,
     // FilterIcon,
     // ChevronDownIcon,
