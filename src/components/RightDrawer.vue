@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from "vue";
-
+import CalendarPopover from "./CalendarPopover.vue";
 const open = defineModel({ type: Boolean, default: false });
 const selectedDate = ref(new Date("2025-04-22"));
 
@@ -16,8 +16,9 @@ const weekDays = [
 
 const events = [
   { time: "11:00", label: "Tour: Julie Smith", color: "bg-green-200" },
-  { time: "12:00", label: "Maintenance: #1232", color: "bg-orange-200" },
-  { time: "12:00", label: "Maintenance: #1232", color: "bg-orange-200" },
+  { time: "12:00", label: "", color: "" },
+  { time: "13:00", label: "Maintenance: #1232", color: "bg-orange-200" },
+  { time: "14:00", label: "Maintenance: #1232", color: "bg-orange-200" },
 ];
 
 const leads = ref({
@@ -29,7 +30,7 @@ const leads = ref({
 const leadDetail = ref({
   name: "Bob Dylan",
   guidedTour: "Thursday, 4.10.25 @ 10:00 am",
-  result: "",
+  result: "Completed - Interested",
   unitShown: "#1232",
   preferred: "#1002",
   notes: "",
@@ -61,9 +62,10 @@ const displayDate = computed(() => {
         </div>
         <div class="panel-header-actions">
           <v-icon>mdi-pencil</v-icon>
-          <v-icon>mdi-calendar</v-icon>
-          <v-icon class="rotate-270">mdi-triangle</v-icon>
-          <v-icon class="rotate-90">mdi-triangle</v-icon>
+          <!-- <v-icon>mdi-calendar</v-icon> -->
+          <CalendarPopover v-model="selectedDate" />
+          <v-icon style="transform: rotate(270deg)">mdi-triangle</v-icon>
+          <v-icon style="transform: rotate(90deg)">mdi-triangle</v-icon>
         </div>
       </div>
 
@@ -135,6 +137,7 @@ const displayDate = computed(() => {
             <label class="block text-sm text-gray-600 mb-1">Result</label>
             <v-select
               :items="['Completed - Interested', 'Completed - Not Interested']"
+              v-model="leadDetail.result"
               variant="outlined"
               density="compact"
               class="custom-select"
@@ -143,7 +146,7 @@ const displayDate = computed(() => {
           </div>
 
           <!-- Unit Shown & Preferred -->
-          <div style="display: flex; gap: 3">
+          <div style="display: flex; column-gap: 10px">
             <div>
               <label class="block text-sm text-gray-600 mb-1">Unit Shown</label>
               <v-select
@@ -177,7 +180,11 @@ const displayDate = computed(() => {
             />
           </div>
 
-          <v-btn block class="mt-3" color="gray">Update</v-btn>
+          <div class="d-flex justify-end mt-3">
+            <div class="updateBtn-container">
+              <button class="updateBtn">Update</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const model = defineModel({ type: String, default: '' })
-const menu = ref(false)
+const model = defineModel({ type: String, default: "" });
+const menu = ref(false);
 </script>
 
 <template>
