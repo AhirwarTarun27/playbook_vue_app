@@ -12,20 +12,23 @@
 
 <script>
 // Import all your SVG icons
-import HomeIcon from '@/assets/icons/HomeIcon.vue'
-import DashboardIcon from '@/assets/icons/DashboardIcon.vue'
-import UsersIcon from '@/assets/icons/UsersIcon.vue'
-import BuildingIcon from '@/assets/icons/BuildingIcon.vue'
-import UserIcon from '@/assets/icons/UserIcon.vue'
-import FileIcon from '@/assets/icons/FileIcon.vue'
-import LockIcon from '@/assets/icons/LockIcon.vue'
-import WrenchIcon from '@/assets/icons/WrenchIcon.vue'
-// import ChartIcon from '@/assets/icons/ChartIcon.vue'
-import MsgIcon from '@/assets/icons/MsgIcon.vue'
-import PhoneIcon from '@/assets/icons/PhoneIcon.vue'
-import CalenderIcon from '@/assets/icons/CalenderIcon.vue'
-import ThreeVerticleLine from '@/assets/icons/ThreeVerticleLine.vue'
-// import SettingsIcon from '@/assets/icons/SettingsIcon.vue'
+import HomeIcon from '@/assets/icons/sideNavBar/HomeIcon.vue'
+import DashboardIcon from '@/assets/icons/sideNavBar/DashboardIcon.vue'
+import UsersIcon from '@/assets/icons/sideNavBar/UsersIcon.vue'
+import BuildingIcon from '@/assets/icons/sideNavBar/BuildingIcon.vue'
+import UserIcon from '@/assets/icons/sideNavBar/UserIcon.vue'
+import FileIcon from '@/assets/icons/sideNavBar/FileIcon.vue'
+import LockIcon from '@/assets/icons/sideNavBar/LockIcon.vue'
+import WrenchIcon from '@/assets/icons/sideNavBar/WrenchIcon.vue'
+// import ChartIcon from '@/assets/icons/sideNavBar/ChartIcon.vue'
+import MsgIcon from '@/assets/icons/sideNavBar/MsgIcon.vue'
+import PhoneIcon from '@/assets/icons/sideNavBar/PhoneIcon.vue'
+import CalenderIcon from '@/assets/icons/sideNavBar/CalenderIcon.vue'
+import ThreeVerticleLine from '@/assets/icons/sideNavBar/ThreeVerticleLine.vue'
+import Clipbord from '@/assets/icons/sideNavBar/ClipbordIcon.vue'
+import UpGraph from '@/assets/icons/sideNavBar/UpGraph.vue'
+import SettingsIcon from '@/assets/icons/sideNavBar/SettingsIcon.vue'
+import InfoIcon from '@/assets/icons/sideNavBar/InfoIcon.vue'
 // import SearchIcon from '@/assets/icons/SearchIcon.vue'
 // import PlusIcon from '@/assets/icons/PlusIcon.vue'
 // import BellIcon from '@/assets/icons/BellIcon.vue'
@@ -55,7 +58,12 @@ export default {
     PhoneIcon,
     CalenderIcon,
     ThreeVerticleLine,
-    // SettingsIcon,
+    Clipbord,
+    UpGraph,
+
+    
+    SettingsIcon,
+    InfoIcon,
     // SearchIcon,
     // PlusIcon,
     // BellIcon,
@@ -75,7 +83,7 @@ export default {
       required: true,
       validator: (value) => [
         'home', 'dashboard', 'users', 'building', 'user', 'file',
-        'lock','msg', 'wrench', 'settings', 'chart', 'search', 'plus', 'phone', 'calender',
+        'lock','msg', 'wrench', 'settings', 'chart', 'search', 'plus', 'phone', 'calender', 'clipbord', 'three-verticle-line', 'upgraph', 'info',
         'bell', 'sun', 'moon', 'edit', 'filter', 'chevron-down',
         'dots-vertical', 'chevron-left', 'chevron-right', 'help'
       ].includes(value)
@@ -122,6 +130,9 @@ export default {
         'phone': 'PhoneIcon',
         'calender': 'CalenderIcon',
         'three-verticle-line': 'ThreeVerticleLine',
+        'clipbord': 'Clipbord',
+        'upgraph': 'UpGraph',
+        'info': 'InfoIcon',
         'plus': 'PlusIcon',
         'bell': 'BellIcon',
         'sun': 'SunIcon',

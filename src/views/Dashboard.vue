@@ -160,20 +160,20 @@ const clearFilters = () => {
           <SvgIcon name="three-verticle-line" :color="isDarkTheme ? '#374151' : 'white'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="phone" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="clipbord" :color="isDarkTheme ? '#374151' : 'white'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="phone" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="upgraph" :color="isDarkTheme ? '#374151' : 'white'" />
         </div>
       </div>
       
       <!-- Bottom icons -->
       <div class="sidebar-bottom">
         <div class="sidebar-icon">
-          <SvgIcon :color="isDarkTheme ? '#374151' : '#9CA3AF'" />
+          <SvgIcon name="settings" :color="isDarkTheme ? '#374151' : '#9CA3AF'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon :color="isDarkTheme ? '#374151' : '#9CA3AF'" />
+          <SvgIcon name="info" :color="isDarkTheme ? '#374151' : '#9CA3AF'" />
         </div>
       </div>
     </aside>
