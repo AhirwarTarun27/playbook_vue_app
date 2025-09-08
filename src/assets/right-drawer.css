@@ -13,7 +13,7 @@
 }
 
 /* Dark theme */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --drawer-bg: #1f2937;
   --drawer-text: rgba(255, 255, 255, 0.9);
   --drawer-text-secondary: #d1d5db;
@@ -57,10 +57,18 @@
 }
 
 .drawer-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--drawer-text);
-  margin: 0;
+  color: var(--drawer-text-secondary);
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+
+  /* Heading/heading-lg */
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 650;
+  line-height: 24px; /* 120% */
+  letter-spacing: -0.2px;
 }
 
 .header-right {
@@ -142,7 +150,7 @@
 
 .date-day {
   font-size: 12px;
-  color: var(--drawer-text-secondary);
+  color: var(--drawer-text);
   display: block;
 }
 
@@ -165,14 +173,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+}
+.upcoming-header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .section-title {
-  font-size: 16px;
-  font-weight: 600;
   color: var(--drawer-text);
-  margin: 0;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: bolder;
+  line-height: 24px; /* 120% */
+  letter-spacing: -0.2px;
 }
 
 .completed-title {
@@ -186,11 +200,12 @@
 }
 
 .add-task-btn {
-  color: var(--drawer-green) !important;
-  text-transform: none !important;
-  font-size: 14px !important;
-  min-height: 32px !important;
-  padding: 0 16px !important;
+  display: flex;
+  width: 58px;
+  justify-content: center;
+  align-items: center;
+  gap: var(--p-sapce-050);
+  flex-shrink: 0;
 }
 
 .add-icon {
@@ -204,12 +219,12 @@
 
 .time-slot-container {
   position: relative;
+  min-height: 50px;
 }
 
 .time-slot {
   display: flex;
   align-items: flex-start;
-  min-height: 40px;
   padding: 8px 0;
 }
 
@@ -223,7 +238,7 @@
 
 .task-content {
   flex: 1;
-  margin-left: 16px;
+  margin-left: 50px;
 }
 
 .task-wrapper {
@@ -352,6 +367,7 @@
   height: 1px;
   background: #e5e5e5;
   margin: 4px 0;
+  width: 100%;
 }
 
 .no-task-indicator {
@@ -451,8 +467,8 @@
 .cancel-btn-text {
   color: #303030;
   font-feature-settings:
-    'liga' off,
-    'clig' off;
+    "liga" off,
+    "clig" off;
 
   /* Body/body-sm/medium */
   font-family: Inter;
@@ -479,7 +495,7 @@
 }
 .btn-text {
   color: #ffffff;
-  font-family: 'SF Pro';
+  font-family: "SF Pro";
   font-size: 12px;
   font-style: normal;
   font-weight: 590;

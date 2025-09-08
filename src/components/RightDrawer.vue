@@ -11,7 +11,7 @@
       <!-- Header -->
       <div class="drawer-header">
         <div class="header-left">
-          <h3 class="drawer-title">Today's To-Dos</h3>
+          <h1 class="drawer-title">Today's To-Dos</h1>
         </div>
         <div class="header-right">
           <v-btn icon size="small" variant="text" class="header-icon-btn"
@@ -122,18 +122,13 @@
               <span class="date-number">{{ option.date }}</span>
             </div>
             <span class="date-day">{{ option.day }}</span>
-            <!-- Notification Badge -->
-            <div
-              v-if="option.date === 24 || option.date === 28"
-              class="notification-badge"
-            ></div>
           </div>
         </div>
 
         <!-- Main Content -->
         <div class="main-content">
           <!-- Upcoming Section -->
-          <div class="section-header">
+          <div class="upcoming-header">
             <h4 class="section-title">Upcoming</h4>
             <v-btn
               variant="text"
@@ -141,7 +136,7 @@
               @click="handleAddTask"
               class="add-task-btn"
             >
-              <SvgIcon name="plus" size="sm" color="#B5EF00" />
+              <span>+</span>
               Add Task
             </v-btn>
           </div>
@@ -153,14 +148,30 @@
               :key="timeSlot"
               class="time-slot-container"
             >
-              <div class="time-slot">
-                <!-- Time Label -->
+              <!-- Time Label -->
+              <div
+                style="
+                  display: flex;
+                  width: 100%;
+                  align-items: end;
+                  justify-content: center;
+                "
+              >
                 <div class="time-label">{{ timeSlot }}</div>
+                <div class="time-partition"></div>
+              </div>
 
-                <!-- Task Content -->
-                <div class="task-content">
-                  <div v-if="getTaskForTime(timeSlot)" class="task-wrapper">
-                    <div class="task-row">
+              <!-- Task Content -->
+              <div class="task-content">
+                <div v-if="getTaskForTime(timeSlot)" class="task-wrapper">
+                  <div class="task-row">
+                    <div
+                      class="task-item"
+                      :class="`task-${getTaskForTime(timeSlot).color}`"
+                      :style="{
+                        opacity: getTaskForTime(timeSlot).completed ? 0.7 : 1,
+                      }"
+                    >
                       <v-checkbox
                         :model-value="getTaskForTime(timeSlot).completed"
                         @update:model-value="
@@ -173,50 +184,35 @@
                         hide-details
                         class="task-checkbox"
                       ></v-checkbox>
-                      <div
-                        class="task-item"
-                        :class="`task-${getTaskForTime(timeSlot).color}`"
+                      <span
+                        class="task-title"
                         :style="{
-                          opacity: getTaskForTime(timeSlot).completed ? 0.7 : 1,
+                          textDecoration: getTaskForTime(timeSlot).completed
+                            ? 'line-through'
+                            : 'none',
                         }"
                       >
+                        {{ getTaskForTime(timeSlot).title }}
+                      </span>
+                      <div class="task-right">
                         <span
-                          class="task-title"
-                          :style="{
-                            textDecoration: getTaskForTime(timeSlot).completed
-                              ? 'line-through'
-                              : 'none',
-                          }"
+                          v-if="getTaskForTime(timeSlot).endTime"
+                          class="end-time"
                         >
-                          {{ getTaskForTime(timeSlot).title }}
+                          {{ getTaskForTime(timeSlot).endTime }}
                         </span>
-                        <div class="task-right">
-                          <div
-                            v-if="timeSlot === '10 am' || timeSlot === '11 am'"
-                            class="task-badge"
-                          >
-                            A
-                          </div>
-                          <span
-                            v-if="getTaskForTime(timeSlot).endTime"
-                            class="end-time"
-                          >
-                            {{ getTaskForTime(timeSlot).endTime }}
-                          </span>
-                        </div>
                       </div>
                     </div>
-                    <!-- Partition line under each event -->
-                    <div class="task-partition"></div>
                   </div>
+                  <!-- Partition line under each event -->
                 </div>
               </div>
 
               <!-- Clean Partition Line -->
-              <div
+              <!-- <div
                 v-if="index < timeSlots.length - 1"
                 class="time-partition"
-              ></div>
+              ></div> -->
             </div>
 
             <!-- No Task Left Indicator -->
@@ -399,6 +395,7 @@ const upcomingTasksData = ref({
     {
       id: "22-1",
       title: "Call: Abigail Lester",
+      endTime: "12:15 pm",
       time: "10 am",
       color: "orange",
       type: "call",
@@ -411,6 +408,7 @@ const upcomingTasksData = ref({
       color: "blue",
       type: "tour",
       completed: false,
+      endTime: "12:15 pm",
     },
     {
       id: "22-3",
