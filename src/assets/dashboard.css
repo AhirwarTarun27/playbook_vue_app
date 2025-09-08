@@ -8,11 +8,11 @@
   --text-light: #9ca3af;
   --brand: #86cf37;
   --brand-hover: #86cf37;
-  --border: #e5e7eb;
+  --border: #e3e3e3;
   --border-horizontal: rgba(255, 255, 255, 0.2);
   --border-vertical: #adadad;
   --border-light: #f3f4f6;
-  --surface: #ffffff;
+  --surface: #f9f9f9;
   --surface-alt: #f8f9fa;
   --card-bg: #ffffff;
   --card-border: #e5e7eb;
@@ -263,6 +263,7 @@
   border-radius: 30px;
   box-shadow: 0 1px 3px var(--shadow);
   border: 1px solid var(--border);
+  height: 88vh;
 }
 
 .section-header {
@@ -426,12 +427,14 @@
 
 /* Filters */
 .filters {
-  padding: 20px 32px;
-  border-bottom: 1px solid var(--border);
+  padding: 8px;
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  width: 97%;
+  margin: auto;
+  background: var(--bg-primary);
 }
 
 .filters-left,
@@ -442,7 +445,7 @@
 }
 
 .btn {
-  padding: 8px 16px;
+  padding: 6px 4px;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 500;
@@ -450,6 +453,11 @@
   color: var(--text-secondary);
   background: var(--surface);
   transition: all 0.2s ease;
+  box-shadow:
+    0 -1px 0 0 #b5b5b5 inset,
+    -1px 0 0 0 #e3e3e3 inset,
+    1px 0 0 0 #e3e3e3 inset,
+    0 1px 0 0 #e3e3e3 inset;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -514,6 +522,11 @@
 /* Table */
 .table-wrap {
   overflow-x: auto;
+  overflow-y: auto;
+  width: 97%;
+  margin: auto;
+  margin-top: 8px;
+  background: var(--bg-primary);
 }
 
 table {
@@ -547,7 +560,7 @@ thead th:last-child {
 tbody td {
   font-size: 14px;
   color: var(--text-primary);
-  padding: 16px 32px;
+  padding: 8px;
   border-bottom: 1px solid var(--border-light);
 }
 

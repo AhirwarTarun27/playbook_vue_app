@@ -5,9 +5,8 @@ import SvgIcon from "@/components/SvgIcon.vue"; // Import your SVG component
 
 defineOptions({ name: "DashboardView" });
 
-const drawerOpen = ref(false);
-const searchQuery = ref("");
-const isDarkTheme = ref(false);
+const drawerOpen = ref(false)
+const isDarkTheme = ref(false)
 
 const selectedFilters = ref({
   inquiries: false,
@@ -385,8 +384,8 @@ const clearFilters = () => {
             </div>
 
             <div class="filters-right">
-              <div class="search-small">
-                <input
+              <!-- <div class="search-small">
+                <input 
                   v-model="searchQuery"
                   type="text"
                   placeholder="Search Prospect"
@@ -398,9 +397,22 @@ const clearFilters = () => {
               <button class="btn">
                 <SvgIcon size="sm" />
                 Filter
+              </button> -->
+              <button 
+                class="btn btn-plain"
+                style="padding: 6px; gap: 0px;"
+              >
+                <SvgIcon name="search" style="height: 15px; width: 15px;"  />
+
+                <SvgIcon name="v-filter" style="height: 15px; width: 15px;" />
               </button>
-              <button class="btn btn-plain" @click="clearFilters">Clear</button>
-              <button class="btn btn-dark">Search</button>
+              <button 
+                class="btn btn-plain"
+                @click="clearFilters"
+              >
+                <SvgIcon name="sort" style="width: 15px; height: 15px;"/>
+              </button>
+              
             </div>
           </div>
 
