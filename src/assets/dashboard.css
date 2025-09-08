@@ -19,6 +19,7 @@
   --card-border: #e5e7eb;
   --card-selected-bg: #3a3d47;
   --shadow: rgba(0, 0, 0, 0.1);
+  --avatar-body: #303030;
 }
 
 /* Dark theme */
@@ -42,6 +43,7 @@
   --card-border: #374151;
   --card-selected-bg: #22c55e;
   --shadow: rgba(0, 0, 0, 0.3);
+  --avatar-body: #1f2937;
 }
 
 /* Layout */
@@ -153,7 +155,7 @@
 
   display: flex;
   width: 27.4375rem;
-  padding: 0.625rem 0.8125rem;
+  padding: 0.625rem 2rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -169,8 +171,8 @@
 
 .search-icon {
   position: absolute;
-  right: 12px;
-  top: 65%;
+  left: 12px;
+  top: 58%;
   transform: translateY(-50%);
   color: var(--text-light);
 }
@@ -202,6 +204,7 @@
   border-radius: 6px;
   transition: background-color 0.2s ease;
   color: var(--text-secondary);
+  margin-top: 4px;
 }
 
 .theme-toggle:hover {
@@ -211,12 +214,41 @@
 
 .avatar-section {
   display: flex;
+  padding: 2px;
+  justify-content: flex-end;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+}
+
+.avatar-section > div {
+  background: var(--avatar-body);
+}
+
+.avatar-section > div:nth-child(2) {
+  display: flex;
+  padding: 2px 0 0 8px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.avatar-section svg {
+  width: 20px;
+  height: 20px;
 }
 
 .user-info {
   text-align: right;
+  color: #fff;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: 16px; /* 133.333% */
+}
+
+.avatar-section svg {
+  color: #fff;
 }
 
 .user-name {
@@ -235,12 +267,9 @@
 }
 
 .avatar-ring {
-  width: 3.61919rem;
-  height: 3.33619rem;
-  flex-shrink: 0;
-  aspect-ratio: 57.91/53.38;
-  border-radius: 50%;
-  border: 2px solid var(--border);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
   overflow: hidden; /* ensures the image is clipped to the circle */
   display: flex;
   align-items: center;
@@ -390,26 +419,27 @@
 .card .label {
   margin-bottom: 4px;
   color: black;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
   line-height: 24px; /* 150% */
   letter-spacing: 0.15px;
+  text-align: right;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 590;
+  line-height: normal;
+  letter-spacing: -1.44px;
 }
 
 .card-selected .label {
-  color: rgba(255, 255, 255, 0.7);
+  color: #fff;
 }
 
 .card .value {
-  color: #1a1a1a;
-  margin: 0;
-
-  font-size: 14px;
+  color: #616161;
+  text-align: right;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 142.857% */
-  letter-spacing: 0.25px;
+  line-height: normal;
 }
 
 .card-selected .value {

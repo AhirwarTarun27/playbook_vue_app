@@ -204,14 +204,14 @@ const clearFilters = () => {
       <div class="topbar">
         <div class="topbar-left">
           <div class="search-wrap">
-            <input
-              type="text"
-              placeholder="Search Properties, Leads, etc..."
-              class="search-input"
-            />
             <div class="search-icon">
               <SvgIcon name="search" size="sm" />
             </div>
+            <input
+              type="text"
+              placeholder="Search "
+              class="search-input"
+            />
           </div>
         </div>
         <div class="topbar-right">
@@ -219,36 +219,38 @@ const clearFilters = () => {
           <div class="topbar-actions">
             <div
               class="action-add-btn"
-              style="margin-bottom: 1rem; margin-right: 0.5rem"
+              style="margin-bottom: .4rem;     margin-bottom: 0.1rem;"
             >
               <v-btn icon>
-                <SvgIcon name="plus" size="lg" />
+                <SvgIcon name="plus" size="sm" />
               </v-btn>
             </div>
 
             <!-- Notifications -->
-            <div class="cursor-pointer">
-              <SvgIcon name="bell" :color="isDarkTheme ? '#374151' : 'white'" />
-            </div>
+            
 
             <!-- Theme Toggle -->
             <div class="theme-toggle" @click="toggleTheme">
               <SvgIcon
                 :name="isDarkTheme ? 'moon' : 'sun'"
                 :color="isDarkTheme ? 'black' : 'white'"
+                size="sm"
               />
             </div>
           </div>
 
           <!-- User Avatar Section -->
           <div class="avatar-section">
+            <div class="cursor-pointer" style="padding: 6px; padding: 2px 6px; border-radius: 8px;">
+              <SvgIcon name="bell" :color="isDarkTheme ? '#374151' : 'white'" />
+            </div>
             <div class="user-info">
-              <div class="user-name">Naomi R.</div>
-              <div class="user-role">Property Mgr</div>
+              Naomi R.
+              <div class="avatar-ring">
+              <img src="../assets/icons/portrait06.png" alt="" />
             </div>
-            <div class="avatar-ring">
-              <img src="../assets/icons/image.png" alt="" />
             </div>
+            
           </div>
         </div>
       </div>
@@ -293,8 +295,8 @@ const clearFilters = () => {
                   />
                 </div>
                 <div class="card-info">
-                  <div class="label">Default</div>
-                  <div class="value">140</div>
+                  <div class="label">140</div>
+                  <div class="value">Default</div>
                 </div>
               </div>
 
@@ -304,8 +306,8 @@ const clearFilters = () => {
                   <SvgIcon  style="width: 17px; height: 21px" />
                 </div>
                 <div class="card-info">
-                  <div class="label">Hard Hat</div>
-                  <div class="value">16</div>
+                  <div class="label">16</div>
+                  <div class="value">Hard Hat</div>
                 </div>
               </div>
 
@@ -315,8 +317,8 @@ const clearFilters = () => {
                   <SvgIcon name="dollar" style="width: 17px; height: 21px" />
                 </div>
                 <div class="card-info">
-                  <div class="label">Affordable</div>
-                  <div class="value">34</div>
+                  <div class="label">34</div>
+                  <div class="value">Affordable</div>
                 </div>
               </div>
 
@@ -326,8 +328,8 @@ const clearFilters = () => {
                   <SvgIcon name="people" style="width: 17px; height: 21px" />
                 </div>
                 <div class="card-info">
-                  <div class="label">Multi-Family</div>
-                  <div class="value">120</div>
+                  <div class="label">120</div>
+                  <div class="value">Multi-Family</div>
                 </div>
               </div>
 
