@@ -339,7 +339,7 @@
           >
             <SvgIcon
               name="chevron-left"
-              :color="isDarkTheme ? '#d1d5db' : '#1a1a1a'"
+              :color="isDarkTheme ? '#ffffff' : '#1a1a1a'"
               size="md"
             />
           </v-btn>
@@ -357,7 +357,7 @@
           >
             <SvgIcon
               name="chevron-right"
-              :color="isDarkTheme ? '#d1d5db' : '#1a1a1a'"
+              :color="isDarkTheme ? '#ffffff' : '#1a1a1a'"
               size="md"
             />
           </v-btn>
