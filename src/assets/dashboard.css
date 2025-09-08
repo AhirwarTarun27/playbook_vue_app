@@ -177,6 +177,15 @@
   color: var(--text-light);
 }
 
+.select-icon {
+  position: absolute;
+  color: var(--text-light);
+
+  top: 65%;
+  transform: translateY(-50%);
+  right: 12px;
+}
+
 .topbar-right {
   display: flex;
   align-items: center;

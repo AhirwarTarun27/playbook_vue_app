@@ -272,7 +272,7 @@ const clearFilters = () => {
                 <select class="cursor-pointer">
                   <option>XYZ Properties</option>
                 </select>
-                <div class="search-icon">
+                <div class="select-icon">
                   <SvgIcon name="updownarrow" size="sm" />
                 </div>
               </div>
