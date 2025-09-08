@@ -136,14 +136,37 @@
         <div class="main-content">
           <!-- Upcoming Section -->
           <div class="upcoming-header">
-            <h4 class="section-title">Upcoming</h4>
+            <div
+              style="
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                margin-bottom: 8px;
+              "
+            >
+              <h3 class="panel-title">Upcoming</h3>
+              <div
+                style="
+                  margin-left: 4px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                "
+              >
+                <SvgIcon
+                  name="chevron-down"
+                  :color="isDarkTheme ? '#d1d5db' : '#1a1a1a'"
+                  size="md"
+                />
+              </div>
+            </div>
             <v-btn
               variant="text"
               size="small"
               @click="handleAddTask"
               class="add-task-btn"
             >
-              <span>+</span>
+              <span class="mr-1">+</span>
               Add Task
             </v-btn>
           </div>
@@ -229,7 +252,30 @@
           </div>
 
           <!-- Completed Section -->
-          <h4 class="section-title completed-title">Completed</h4>
+          <div
+            style="
+              display: flex;
+              justify-content: start;
+              align-items: center;
+              margin-bottom: 8px;
+            "
+          >
+            <h3 class="panel-title">Completed</h3>
+            <div
+              style="
+                margin-left: 4px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <SvgIcon
+                name="chevron-down"
+                :color="isDarkTheme ? '#d1d5db' : '#1a1a1a'"
+                size="md"
+              />
+            </div>
+          </div>
           <div class="completed-tasks">
             <div
               v-for="task in completedTasks"

@@ -90,7 +90,7 @@
 .drawer-content {
   flex: 1;
   overflow: auto;
-  padding: 0 24px;
+  padding: 20px 24px;
 }
 
 .date-subtitle {
@@ -142,6 +142,7 @@
 .date-number {
   font-size: 14px;
   font-weight: 500;
+  color: var(--drawer-text);
 }
 
 .date-option.active .date-number {
@@ -206,6 +207,8 @@
   align-items: center;
   gap: var(--p-sapce-050);
   flex-shrink: 0;
+  text-transform: capitalize;
+  color: #005bd3;
 }
 
 .add-icon {
@@ -255,6 +258,7 @@
 
 .task-checkbox {
   flex-shrink: 0;
+  margin-right: 5px;
 }
 
 .task-checkbox .v-input__control {
