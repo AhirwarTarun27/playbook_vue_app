@@ -271,11 +271,11 @@ const clearFilters = () => {
                   <option>XYZ Properties</option>
                 </select>
                 <div class="search-icon">
-                  <SvgIcon size="sm" />
+                  <SvgIcon name="updownarrow" size="sm" />
                 </div>
               </div>
-              <div class="cursor-pointer">
-                <SvgIcon />
+              <div @click="drawerOpen = true" class="cursor-pointer drawer-open">
+                <SvgIcon name="drawer-open"/>
               </div>
             </div>
           </div>
@@ -301,7 +301,7 @@ const clearFilters = () => {
               <!-- Hard Hat Card -->
               <div class="card">
                 <div class="icon-circle">
-                  <SvgIcon color="#8B5CF6" size="sm" />
+                  <SvgIcon  style="width: 17px; height: 21px" />
                 </div>
                 <div class="card-info">
                   <div class="label">Hard Hat</div>
@@ -312,7 +312,7 @@ const clearFilters = () => {
               <!-- Affordable Card -->
               <div class="card">
                 <div class="icon-circle">
-                  <SvgIcon color="#2563EB" size="sm" />
+                  <SvgIcon name="dollar" style="width: 17px; height: 21px" />
                 </div>
                 <div class="card-info">
                   <div class="label">Affordable</div>
@@ -323,7 +323,7 @@ const clearFilters = () => {
               <!-- Multi-Family Card -->
               <div class="card">
                 <div class="icon-circle">
-                  <SvgIcon color="#8B5CF6" size="sm" />
+                  <SvgIcon name="people" style="width: 17px; height: 21px" />
                 </div>
                 <div class="card-info">
                   <div class="label">Multi-Family</div>
@@ -333,10 +333,10 @@ const clearFilters = () => {
 
               <div class="verticalBorder"></div>
               <!-- Add New Card -->
-              <div class="add-card" @click="drawerOpen = true">
+              <div class="add-card" >
                 <div class="action-add-btn">
-                  <v-btn icon size="large">
-                    <SvgIcon name="plus" size="lg" color="white" />
+                  <v-btn icon size="small">
+                    <SvgIcon name="plus" size="sm" color="white" />
                   </v-btn>
                 </div>
               </div>
@@ -347,8 +347,7 @@ const clearFilters = () => {
           <div class="filters">
             <div class="filters-left">
               <button
-                class="btn"
-                :class="selectedFilters.inquiries ? 'btn-active' : ''"
+                class="btn btn-active"
                 @click="toggleFilter('inquiries')"
               >
                 Inquiries
@@ -381,6 +380,13 @@ const clearFilters = () => {
               >
                 Not Interested
               </button>
+
+              <button
+                class="btn"
+                style="padding: 0;"
+              >
+               <SvgIcon name="simpleplus" size="md"/>
+              </button>
             </div>
 
             <div class="filters-right">
@@ -412,6 +418,8 @@ const clearFilters = () => {
               >
                 <SvgIcon name="sort" style="width: 15px; height: 15px;"/>
               </button>
+
+              
               
             </div>
           </div>
@@ -424,12 +432,12 @@ const clearFilters = () => {
                   <th>
                     <input type="checkbox" />
                   </th>
-                  <th>Name</th>
-                  <th>Property</th>
-                  <th>Status</th>
-                  <th>Play / Trigger</th>
-                  <th>Date of Inquiry</th>
-                  <th class="text-center">Actions</th>
+                  <th><div class="table-head"><SvgIcon name="updownarrow" style="margin-bottom: -5px; margin-right: -4px;"/> Name</div></th>
+                  <th><div class="table-head"><SvgIcon name="updownarrow" style="margin-bottom: -5px; margin-right: -4px;" />Property</div></th>
+                  <th><div class="table-head"><SvgIcon name="updownarrow" style="margin-bottom: -5px; margin-right: -4px;" />Status</div></th>
+                  <th><div class="table-head"><SvgIcon name="updownarrow" style="margin-bottom: -5px; margin-right: -4px;" />Play / Trigger</div></th>
+                  <th><div class="table-head"><SvgIcon name="updownarrow" style="margin-bottom: -5px; margin-right: -4px;" />Date of Inquiry</div></th>
+                  <th class="text-center"><div class="table-head"><SvgIcon name="updownarrow" style="margin-bottom: -5px; margin-right: -4px;" />Actions</div></th>
                 </tr>
               </thead>
               <tbody>
@@ -444,7 +452,7 @@ const clearFilters = () => {
                   <td>{{ item.date }}</td>
                   <td class="text-center">
                     <div class="cursor-pointer">
-                      <SvgIcon size="sm" />
+                      <SvgIcon name="dots-vertical"  />
                     </div>
                   </td>
                 </tr>
@@ -459,16 +467,16 @@ const clearFilters = () => {
                 <span>Rows per page:</span>
                 <span style="font-weight: 500">9</span>
                 <div class="cursor-pointer">
-                  <SvgIcon size="sm" />
+                  <SvgIcon name="bottomarrow" style="width: 10px; height: 10px;" />
                 </div>
               </div>
               <span style="font-weight: 500">1-4 of 36</span>
               <div class="pagination-control">
                 <div class="cursor-pointer">
-                  <SvgIcon size="sm" />
+                  <SvgIcon name="leftarrow"  style="width: 10px; height: 10px;"/>
                 </div>
                 <div class="cursor-pointer">
-                  <SvgIcon size="sm" />
+                  <SvgIcon name="rightarrow" style="width: 10px; height: 10px;" />
                 </div>
               </div>
             </div>

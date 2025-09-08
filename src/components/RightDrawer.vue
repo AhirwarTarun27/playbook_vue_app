@@ -151,7 +151,7 @@
           <!-- Time Slots -->
           <div class="time-slots">
             <div
-              v-for="(timeSlot, index) in timeSlots"
+              v-for="(timeSlot) in timeSlots"
               :key="timeSlot"
               class="time-slot-container"
             >
@@ -503,14 +503,14 @@ const getTaskForTime = (timeSlot) => {
   return currentTasks.find((t) => t.time === timeSlot);
 };
 
-const getSelectedDateInfo = () => {
-  const selectedOption = dateOptions.find(
-    (option) => option.date === selectedDate.value
-  );
-  return selectedOption
-    ? `${selectedOption.day}, April ${selectedOption.date}`
-    : "April 22nd, 2025";
-};
+// const getSelectedDateInfo = () => {
+//   const selectedOption = dateOptions.find(
+//     (option) => option.date === selectedDate.value
+//   );
+//   return selectedOption
+//     ? `${selectedOption.day}, April ${selectedOption.date}`
+//     : "April 22nd, 2025";
+// };
 
 const getMonthYearString = () => {
   return currentMonth.value.toLocaleDateString("en-US", {

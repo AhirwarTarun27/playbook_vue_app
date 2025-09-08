@@ -4,7 +4,8 @@
   --bg-secondary: #f8f9fa;
   --bg-sidebar: #1a1a1a;
   --text-primary: #1a1a1a;
-  --text-secondary: #6b7280;
+  --bg-btn: #1a1a1a;
+  --text-secondary: #131314;
   --text-light: #9ca3af;
   --brand: #86cf37;
   --brand-hover: #86cf37;
@@ -12,8 +13,8 @@
   --border-horizontal: rgba(255, 255, 255, 0.2);
   --border-vertical: #adadad;
   --border-light: #f3f4f6;
-  --surface: #f9f9f9;
-  --surface-alt: #f8f9fa;
+  --surface: #f7f7f7;
+  --surface-alt: #ffffff;
   --card-bg: #ffffff;
   --card-border: #e5e7eb;
   --card-selected-bg: #3a3d47;
@@ -24,6 +25,7 @@
 [data-theme='dark'] {
   --bg-primary: #1f2937;
   --bg-secondary: #111827;
+  --bg-btn: #ffffff;
   --bg-sidebar: #f8f9fa;
   --text-primary: rgba(255, 255, 255, 0.9);
   --text-secondary: #d1d5db;
@@ -80,7 +82,7 @@
 }
 
 .sidebar-bottom {
-  margin-top: auto;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -168,7 +170,7 @@
 .search-icon {
   position: absolute;
   right: 12px;
-  top: 57%;
+  top: 65%;
   transform: translateY(-50%);
   color: var(--text-light);
 }
@@ -267,7 +269,7 @@
 }
 
 .section-header {
-  padding: 24px 32px 16px 32px;
+  padding: 24px 0px 16px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -308,6 +310,16 @@
   cursor: pointer;
   outline: none;
   appearance: none;
+  display: flex;
+  width: 320px;
+  height: 36px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.drawer-open svg {
+  width: 42px;
+  height: 42px;
 }
 
 .org-select select:focus {
@@ -327,9 +339,7 @@
 }
 
 .card {
-  background: #ffffff;
-  border: none;
-  border-radius: 8px;
+  /* background: #f9f9f9; */
   padding: 16px;
   min-width: 145px;
   align-items: center;
@@ -337,7 +347,10 @@
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  border-radius: 10px;
+  border: 1px solid #000;
+  background: #f7f7f7;
 }
 
 .card-info {
@@ -406,13 +419,16 @@
 .add-card {
   border: 2px dashed #d1d5db;
   border-radius: 8px;
-  min-width: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
   background: transparent;
+
+  width: 73px;
+  height: 83px;
+  flex-shrink: 0;
 }
 
 .add-card:hover {
@@ -435,6 +451,7 @@
   width: 97%;
   margin: auto;
   background: var(--bg-primary);
+  border-radius: 8px 8px 0 0;
 }
 
 .filters-left,
@@ -444,6 +461,12 @@
   gap: 12px;
 }
 
+.filters-left button {
+  padding: 6px 12px;
+  border: none;
+  box-shadow: none;
+}
+
 .btn {
   padding: 6px 4px;
   border-radius: 8px;
@@ -451,7 +474,7 @@
   font-weight: 500;
   border: 1px solid var(--border);
   color: var(--text-secondary);
-  background: var(--surface);
+  background: var(--bg-primary);
   transition: all 0.2s ease;
   box-shadow:
     0 -1px 0 0 #b5b5b5 inset,
@@ -464,15 +487,14 @@
   gap: 6px;
 }
 
-.btn:hover {
-  background: var(--surface-alt);
-  border-color: var(--brand);
+.filters .btn svg {
+  fill: var(--text-primary);
 }
 
 .btn-active {
-  background: #eff6ff;
-  border-color: #3b82f6;
-  color: #1d4ed8;
+  background: var(--bg-btn);
+  color: var(--bg-primary);
+  border-radius: 8px;
 }
 
 .btn-plain {
@@ -533,20 +555,33 @@ table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
+  border: 1px solid var(--border);
 }
 
 thead th {
   text-align: left;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--text-secondary);
-  text-transform: uppercase;
+  color: var(--text-primary);
+  /* text-transform: uppercase; */
   letter-spacing: 0.5px;
   border-bottom: 1px solid var(--border);
-  padding: 16px 32px 16px 32px;
+  padding: 12px 6px 12px 12px;
   background: var(--surface-alt);
   position: sticky;
   top: 0;
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px; /* 153.846% */
+}
+
+.table-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 thead th:first-child {
@@ -562,6 +597,15 @@ tbody td {
   color: var(--text-primary);
   padding: 8px;
   border-bottom: 1px solid var(--border-light);
+
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: 20px;
 }
 
 tbody td:first-child {
@@ -628,6 +672,7 @@ tbody tr:hover {
 
 .cursor-pointer {
   cursor: pointer;
+  width: fit-content;
 }
 
 .dashboard input[type='checkbox'] {

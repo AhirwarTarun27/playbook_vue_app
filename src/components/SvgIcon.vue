@@ -1,11 +1,5 @@
 <template>
-  <svg
-    :class="iconClass"
-    :style="iconStyle"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg :class="iconClass" :style="iconStyle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <component :is="iconName" />
   </svg>
 </template>
@@ -42,9 +36,18 @@ import VFilter from '@/assets/icons/tableFilters/VFilter.vue'
 // import EditIcon from '@/assets/icons/EditIcon.vue'
 // import FilterIcon from '@/assets/icons/FilterIcon.vue'
 // import ChevronDownIcon from '@/assets/icons/ChevronDownIcon.vue'
-// import DotsVerticalIcon from '@/assets/icons/DotsVerticalIcon.vue'
 import ChevronLeftIcon from "@/assets/icons/ChevronLeftIcon.vue";
 import ChevronRightIcon from "@/assets/icons/ChevronRightIcon.vue";
+import DotsVerticalIcon from "@/assets/icons/tableFilters/DotsVerticalIcon.vue";
+import UpDownArrow from "@/assets/icons/tableFilters/UpDownArrow.vue";
+import SimplePlus from "@/assets/icons/tableFilters/SimplePlus.vue";
+import BottomArrow from "@/assets/icons/tableFilters/BottomArrow.vue";
+import LeftArrow from "@/assets/icons/tableFilters/LeftArrow.vue";
+import RightArrow from "@/assets/icons/tableFilters/RightArrow.vue";
+import HardHat from "@/assets/icons/HardHat.vue";
+import DollarIcon from "@/assets/icons/DollarIcon.vue";
+import PeopleIcon from "@/assets/icons/tableFilters/PeopleIcon.vue";
+import DrawerOpenIcon from "@/assets/icons/DrawerOpenIcon.vue";
 // import HelpIcon from '@/assets/icons/HelpIcon.vue'
 
 export default {
@@ -77,11 +80,21 @@ export default {
     PencilIcon,
     BookIcon,
     FormalIcon,
+    UpDownArrow,
+    SimplePlus,
+    BottomArrow,
+    LeftArrow,
+    RightArrow,
+    HardHat,
+    DollarIcon,
+    PeopleIcon,
+    DrawerOpenIcon,
+
 
     // EditIcon,
     // FilterIcon,
     // ChevronDownIcon,
-    // DotsVerticalIcon,
+    DotsVerticalIcon,
     ChevronLeftIcon,
     ChevronRightIcon,
     // HelpIcon
@@ -92,8 +105,13 @@ export default {
       required: true,
       validator: (value) => [
         'home', 'dashboard', 'users', 'building', 'user', 'file',
-        'lock', 'msg', 'wrench', 'settings', 'chart', 'search', 'plus', 'phone', 'calender', 'clipbord', 'sort', 'v-filter' ,    'three-verticle-line', 'upgraph', 'info', 'pencil',
-'formal',
+        'lock', 'msg', 'wrench', 'settings', 'chart', 'search', 'plus', 'phone', 'calender', 'clipbord', 'sort', 'simpleplus',
+        'drawer-open',
+        'hard-hat', 'dollar','people',
+        'bottomarrow', 'leftarrow', 'rightarrow',
+        'updownarrow',
+        'v-filter', 'three-verticle-line', 'upgraph', 'info', 'pencil',
+        'formal',
         'book',
         'bell', 'sun', 'moon', 'edit', 'filter', 'chevron-down',
         'dots-vertical', 'chevron-left', 'chevron-right', 'help'
@@ -143,6 +161,15 @@ export default {
         'three-verticle-line': 'ThreeVerticleLine',
         'clipbord': 'Clipbord',
         'upgraph': 'UpGraph',
+        'updownarrow': 'UpDownArrow',
+        'simpleplus': 'SimplePlus',
+        'bottomarrow': 'BottomArrow',
+        'leftarrow': 'LeftArrow',
+        'rightarrow': 'RightArrow',
+        'hard-hat': 'HardHat',
+        'dollar': 'DollarIcon',
+        'people': 'PeopleIcon',
+        'drawer-open': 'DrawerOpenIcon',
         'sort': 'SortFilter',
         'v-filter': 'VFilter',
         'info': 'InfoIcon',
