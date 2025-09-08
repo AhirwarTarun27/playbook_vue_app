@@ -13,7 +13,7 @@
 }
 
 /* Dark theme */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --drawer-bg: #1f2937;
   --drawer-text: rgba(255, 255, 255, 0.9);
   --drawer-text-secondary: #d1d5db;
@@ -71,7 +71,6 @@
 }
 
 .header-icon-btn {
-  color: var(--drawer-text-secondary) !important;
   width: 32px !important;
   height: 32px !important;
 }
@@ -137,6 +136,10 @@
   font-size: 14px;
   font-weight: 500;
   color: var(--drawer-text);
+}
+
+.date-option.active .date-number {
+  color: #1a1a1a;
 }
 
 .date-day {
@@ -438,28 +441,53 @@
 }
 
 .cancel-btn {
-  color: var(--drawer-text-secondary) !important;
-  text-transform: none !important;
-  font-weight: 500 !important;
-  font-size: 14px !important;
-  min-height: 36px !important;
-  padding: 0 24px !important;
+  display: flex;
+  padding: 6px 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 0.1px solid black;
+}
+.cancel-btn-text {
+  color: #303030;
+  font-feature-settings:
+    "liga" off,
+    "clig" off;
+
+  /* Body/body-sm/medium */
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 550;
+  line-height: 16px; /* 133.333% */
+  text-transform: capitalize;
 }
 
 .update-btn {
-  background: #2d2d2d !important;
-  color: white !important;
-  text-transform: none !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  min-height: 36px !important;
-  padding: 0 24px !important;
+  display: flex;
+  padding: var(--p-sapce-150) var(--p-sapce-300);
+  justify-content: center;
+  align-items: center;
+  gap: var(--p-sapce-050);
+  border-radius: 8px;
+  background: #303030;
 }
 
 .update-btn:hover {
-  background: #1a1a1a !important;
+  color: #1a1a1a !important;
+  background-color: #ffffff;
 }
-
+.btn-text {
+  color: #ffffff;
+  font-family: "SF Pro";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 590;
+  line-height: 16px; /* 133.333% */
+  text-transform: capitalize;
+}
 /* Date Picker Overlay */
 .date-picker-overlay {
   position: fixed;
@@ -549,6 +577,16 @@
 }
 
 .calendar-day.active:hover {
+  background: #000000;
+}
+
+/* Dark theme calendar day active state */
+.dark-theme .calendar-day.active {
+  background: #000000;
+  color: white;
+}
+
+.dark-theme .calendar-day.active:hover {
   background: #000000;
 }
 

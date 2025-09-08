@@ -1,118 +1,120 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import RightDrawer from '@/components/RightDrawer.vue'
-import SvgIcon from '@/components/SvgIcon.vue' // Import your SVG component
+import { ref, onMounted } from "vue";
+import RightDrawer from "@/components/RightDrawer.vue";
+import SvgIcon from "@/components/SvgIcon.vue"; // Import your SVG component
 
-defineOptions({ name: 'DashboardView' })
+defineOptions({ name: "DashboardView" });
 
-const drawerOpen = ref(false)
-const searchQuery = ref('')
-const isDarkTheme = ref(false)
+const drawerOpen = ref(false);
+const searchQuery = ref("");
+const isDarkTheme = ref(false);
 
 const selectedFilters = ref({
   inquiries: false,
   preTour: false,
   interested: false,
   noShows: false,
-  notInterested: false
-})
+  notInterested: false,
+});
 
 const items = ref([
-  { 
+  {
     id: 1,
-    name: 'Sara Martinez', 
-    property: 'Willow & Pine', 
-    status: 'Inquiry', 
-    play: 'Day 1: SMS', 
-    date: 'July 10, 2025',
-    selected: false
+    name: "Sara Martinez",
+    property: "Willow & Pine",
+    status: "Inquiry",
+    play: "Day 1: SMS",
+    date: "July 10, 2025",
+    selected: false,
   },
-  { 
+  {
     id: 2,
-    name: 'Marcus Bennett', 
-    property: 'The Landing at Brookstone', 
-    status: 'Inquiry', 
-    play: 'Day 1: Email', 
-    date: 'July 9, 2025',
-    selected: true
+    name: "Marcus Bennett",
+    property: "The Landing at Brookstone",
+    status: "Inquiry",
+    play: "Day 1: Email",
+    date: "July 9, 2025",
+    selected: true,
   },
-  { 
+  {
     id: 3,
-    name: 'Jamie Chen', 
-    property: 'Echo Ridge Apartments', 
-    status: 'Showing Set', 
-    play: 'Day 1: Follow Up Call', 
-    date: 'July 10, 2025',
-    selected: false
+    name: "Jamie Chen",
+    property: "Echo Ridge Apartments",
+    status: "Showing Set",
+    play: "Day 1: Follow Up Call",
+    date: "July 10, 2025",
+    selected: false,
   },
-  { 
+  {
     id: 4,
-    name: 'Lila Thompson', 
-    property: 'The Elms on Parkview', 
-    status: 'Inquiry', 
-    play: 'Day 1: SMS', 
-    date: 'July 11, 2025',
-    selected: false
+    name: "Lila Thompson",
+    property: "The Elms on Parkview",
+    status: "Inquiry",
+    play: "Day 1: SMS",
+    date: "July 11, 2025",
+    selected: false,
   },
-  { 
+  {
     id: 5,
-    name: 'Omar Castillo', 
-    property: 'Atlas Grove', 
-    status: 'Inquiry', 
-    play: 'Day 1: SMS', 
-    date: 'July 8, 2025',
-    selected: false
+    name: "Omar Castillo",
+    property: "Atlas Grove",
+    status: "Inquiry",
+    play: "Day 1: SMS",
+    date: "July 8, 2025",
+    selected: false,
   },
-  { 
+  {
     id: 6,
-    name: 'Vanessa Patel', 
-    property: 'Stonebridge Flats', 
-    status: 'Inquiry', 
-    play: 'Day 1: Email', 
-    date: 'July 10, 2025',
-    selected: false
+    name: "Vanessa Patel",
+    property: "Stonebridge Flats",
+    status: "Inquiry",
+    play: "Day 1: Email",
+    date: "July 10, 2025",
+    selected: false,
   },
-  { 
+  {
     id: 7,
-    name: 'Ethan Walker', 
-    property: 'Vera Vista', 
-    status: 'Inquiry', 
-    play: 'Day 1: Email', 
-    date: 'July 10, 2025',
-    selected: false
+    name: "Ethan Walker",
+    property: "Vera Vista",
+    status: "Inquiry",
+    play: "Day 1: Email",
+    date: "July 10, 2025",
+    selected: false,
   },
-  { 
+  {
     id: 8,
-    name: 'Brianna Green', 
-    property: 'Crescent Row', 
-    status: 'Inquiry', 
-    play: 'Day 1: Follow Up Call', 
-    date: 'July 10, 2025',
-    selected: false
-  }
-])
+    name: "Brianna Green",
+    property: "Crescent Row",
+    status: "Inquiry",
+    play: "Day 1: Follow Up Call",
+    date: "July 10, 2025",
+    selected: false,
+  },
+]);
 
 // Theme switching
 const toggleTheme = () => {
-  isDarkTheme.value = !isDarkTheme.value
-  document.documentElement.setAttribute('data-theme', isDarkTheme.value ? 'dark' : 'light')
-}
+  isDarkTheme.value = !isDarkTheme.value;
+  document.documentElement.setAttribute(
+    "data-theme",
+    isDarkTheme.value ? "dark" : "light"
+  );
+};
 
 // Initialize theme
 onMounted(() => {
-  document.documentElement.setAttribute('data-theme', 'light')
-})
+  document.documentElement.setAttribute("data-theme", "light");
+});
 
 const toggleFilter = (filter) => {
-  selectedFilters.value[filter] = !selectedFilters.value[filter]
-}
+  selectedFilters.value[filter] = !selectedFilters.value[filter];
+};
 
 const clearFilters = () => {
-  Object.keys(selectedFilters.value).forEach(key => {
-    selectedFilters.value[key] = false
-  })
-}
-
+  Object.keys(selectedFilters.value).forEach((key) => {
+    selectedFilters.value[key] = false;
+  });
+};
 </script>
 
 <template>
@@ -121,13 +123,25 @@ const clearFilters = () => {
     <aside class="sidebar">
       <!-- Logo -->
       <div class="logo">
-        <SvgIcon name="home" style="width: 30.245px; height: 37.593px; flex-shrink: 0; aspect-ratio: 30.24/37.59;" color="white" />
+        <SvgIcon
+          name="home"
+          style="
+            width: 30.245px;
+            height: 37.593px;
+            flex-shrink: 0;
+            aspect-ratio: 30.24/37.59;
+          "
+          color="white"
+        />
       </div>
-      
+
       <!-- Navigation Icons -->
       <div class="icon-list">
         <div class="sidebar-icon">
-          <SvgIcon name="dashboard" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon
+            name="dashboard"
+            :color="isDarkTheme ? '#374151' : 'white'"
+          />
         </div>
         <div class="sidebar-icon">
           <SvgIcon name="users" :color="isDarkTheme ? '#374151' : 'white'" />
@@ -139,7 +153,7 @@ const clearFilters = () => {
         <div class="sidebar-icon">
           <SvgIcon name="user" :color="isDarkTheme ? '#374151' : 'white'" />
         </div>
-        <div class="sidebar-icon" style="margin-left: 0.4rem;">
+        <div class="sidebar-icon" style="margin-left: 0.4rem">
           <SvgIcon name="file" :color="isDarkTheme ? '#374151' : 'white'" />
         </div>
         <div class="sidebar-icon">
@@ -158,7 +172,10 @@ const clearFilters = () => {
           <SvgIcon name="calender" :color="isDarkTheme ? '#374151' : 'white'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="three-verticle-line" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon
+            name="three-verticle-line"
+            :color="isDarkTheme ? '#374151' : 'white'"
+          />
         </div>
         <div class="sidebar-icon">
           <SvgIcon name="clipbord" :color="isDarkTheme ? '#374151' : 'white'" />
@@ -171,7 +188,10 @@ const clearFilters = () => {
       <!-- Bottom icons -->
       <div class="sidebar-bottom">
         <div class="sidebar-icon">
-          <SvgIcon name="settings" :color="isDarkTheme ? '#374151' : '#9CA3AF'" />
+          <SvgIcon
+            name="settings"
+            :color="isDarkTheme ? '#374151' : '#9CA3AF'"
+          />
         </div>
         <div class="sidebar-icon">
           <SvgIcon name="info" :color="isDarkTheme ? '#374151' : '#9CA3AF'" />
@@ -185,8 +205,8 @@ const clearFilters = () => {
       <div class="topbar">
         <div class="topbar-left">
           <div class="search-wrap">
-            <input 
-              type="text" 
+            <input
+              type="text"
               placeholder="Search Properties, Leads, etc..."
               class="search-input"
             />
@@ -197,32 +217,39 @@ const clearFilters = () => {
         </div>
         <div class="topbar-right">
           <!-- Add Button -->
-           <div class="topbar-actions">
+          <div class="topbar-actions">
+            <div
+              class="action-add-btn"
+              style="margin-bottom: 1rem; margin-right: 0.5rem"
+            >
+              <v-btn icon>
+                <SvgIcon name="plus" size="lg" />
+              </v-btn>
+            </div>
 
-             <div class="action-add-btn" style="margin-bottom: 1rem; margin-right: 0.5rem;">
-               <v-btn icon>
-                 <SvgIcon name="plus" size="lg" />
-               </v-btn>
-             </div>
-   
-             <!-- Notifications -->
-             <div class="cursor-pointer">
-               <SvgIcon name="bell" :color="isDarkTheme ? '#374151' : 'white'"/>
-             </div>
-   
-             <!-- Theme Toggle -->
-             <div class="theme-toggle" @click="toggleTheme">
-              <SvgIcon :name="isDarkTheme ? 'moon' : 'sun'" :color="isDarkTheme ? 'black' : 'white'" />
-             </div>
-           </div>
+            <!-- Notifications -->
+            <div class="cursor-pointer">
+              <SvgIcon name="bell" :color="isDarkTheme ? '#374151' : 'white'" />
+            </div>
+
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" @click="toggleTheme">
+              <SvgIcon
+                :name="isDarkTheme ? 'moon' : 'sun'"
+                :color="isDarkTheme ? 'black' : 'white'"
+              />
+            </div>
+          </div>
 
           <!-- User Avatar Section -->
           <div class="avatar-section">
             <div class="user-info">
-              <div class="user-name">Naomi R.</div> 
+              <div class="user-name">Naomi R.</div>
               <div class="user-role">Property Mgr</div>
             </div>
-            <div class="avatar-ring"><img src="/home/tarun/Documents/Practice_projects/demo-vue-app/src/assets/icons/image.png" alt=""></div>
+            <div class="avatar-ring">
+              <img src="../assets/icons/image.png" alt="" />
+            </div>
           </div>
         </div>
       </div>
@@ -236,7 +263,7 @@ const clearFilters = () => {
             <div class="title">
               <h1>Playbooks</h1>
               <div class="cursor-pointer">
-                <SvgIcon name="pencil" size="md" style="margin-top: .5rem;"/>
+                <SvgIcon name="pencil" size="md" style="margin-top: 0.5rem" />
               </div>
             </div>
             <div class="header-actions">
@@ -259,8 +286,12 @@ const clearFilters = () => {
             <div class="stat-cards">
               <!-- Default Card (Selected) -->
               <div class="card card-selected">
-                <div class="icon-circle" >
-                  <SvgIcon name="book" color="white" style="width: 17px; height: 21px;" />
+                <div class="icon-circle">
+                  <SvgIcon
+                    name="book"
+                    color="white"
+                    style="width: 17px; height: 21px"
+                  />
                 </div>
                 <div class="card-info">
                   <div class="label">Default</div>
@@ -273,35 +304,32 @@ const clearFilters = () => {
                 <div class="icon-circle">
                   <SvgIcon color="#8B5CF6" size="sm" />
                 </div>
-                 <div class="card-info">
-
-                   <div class="label">Hard Hat</div>
-                   <div class="value">16</div>
-                 </div>
+                <div class="card-info">
+                  <div class="label">Hard Hat</div>
+                  <div class="value">16</div>
+                </div>
               </div>
 
               <!-- Affordable Card -->
               <div class="card">
-                <div class="icon-circle" >
+                <div class="icon-circle">
                   <SvgIcon color="#2563EB" size="sm" />
                 </div>
-                 <div class="card-info">
-
-                   <div class="label">Affordable</div>
-                   <div class="value">34</div>
-                 </div>
+                <div class="card-info">
+                  <div class="label">Affordable</div>
+                  <div class="value">34</div>
+                </div>
               </div>
 
               <!-- Multi-Family Card -->
               <div class="card">
-                <div class="icon-circle" >
+                <div class="icon-circle">
                   <SvgIcon color="#8B5CF6" size="sm" />
                 </div>
-                 <div class="card-info">
-
-                   <div class="label">Multi-Family</div>
-                   <div class="value">120</div>
-                 </div>
+                <div class="card-info">
+                  <div class="label">Multi-Family</div>
+                  <div class="value">120</div>
+                </div>
               </div>
 
               <div class="verticalBorder"></div>
@@ -319,35 +347,35 @@ const clearFilters = () => {
           <!-- Filter Buttons and Search -->
           <div class="filters">
             <div class="filters-left">
-              <button 
+              <button
                 class="btn"
                 :class="selectedFilters.inquiries ? 'btn-active' : ''"
                 @click="toggleFilter('inquiries')"
               >
                 Inquiries
               </button>
-              <button 
+              <button
                 class="btn"
                 :class="selectedFilters.preTour ? 'btn-active' : ''"
                 @click="toggleFilter('preTour')"
               >
                 Pre-Tour
               </button>
-              <button 
+              <button
                 class="btn"
                 :class="selectedFilters.interested ? 'btn-active' : ''"
                 @click="toggleFilter('interested')"
               >
                 Interested
               </button>
-              <button 
+              <button
                 class="btn"
                 :class="selectedFilters.noShows ? 'btn-active' : ''"
                 @click="toggleFilter('noShows')"
               >
                 No Shows
               </button>
-              <button 
+              <button
                 class="btn"
                 :class="selectedFilters.notInterested ? 'btn-active' : ''"
                 @click="toggleFilter('notInterested')"
@@ -355,12 +383,12 @@ const clearFilters = () => {
                 Not Interested
               </button>
             </div>
-            
+
             <div class="filters-right">
               <div class="search-small">
-                <input 
+                <input
                   v-model="searchQuery"
-                  type="text" 
+                  type="text"
                   placeholder="Search Prospect"
                 />
                 <div class="search-icon">
@@ -371,15 +399,8 @@ const clearFilters = () => {
                 <SvgIcon size="sm" />
                 Filter
               </button>
-              <button 
-                class="btn btn-plain"
-                @click="clearFilters"
-              >
-                Clear
-              </button>
-              <button class="btn btn-dark">
-                Search
-              </button>
+              <button class="btn btn-plain" @click="clearFilters">Clear</button>
+              <button class="btn btn-dark">Search</button>
             </div>
           </div>
 
@@ -400,15 +421,9 @@ const clearFilters = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr 
-                  v-for="item in items" 
-                  :key="item.id"
-                >
+                <tr v-for="item in items" :key="item.id">
                   <td>
-                    <input 
-                      type="checkbox" 
-                      v-model="item.selected"
-                    />
+                    <input type="checkbox" v-model="item.selected" />
                   </td>
                   <td>{{ item.name }}</td>
                   <td>{{ item.property }}</td>
@@ -430,12 +445,12 @@ const clearFilters = () => {
             <div class="group">
               <div class="pagination-control">
                 <span>Rows per page:</span>
-                <span style="font-weight: 500;">9</span>
+                <span style="font-weight: 500">9</span>
                 <div class="cursor-pointer">
                   <SvgIcon size="sm" />
                 </div>
               </div>
-              <span style="font-weight: 500;">1-4 of 36</span>
+              <span style="font-weight: 500">1-4 of 36</span>
               <div class="pagination-control">
                 <div class="cursor-pointer">
                   <SvgIcon size="sm" />
@@ -450,11 +465,11 @@ const clearFilters = () => {
       </div>
     </div>
 
-    <RightDrawer v-model="drawerOpen" />
+    <RightDrawer v-model="drawerOpen" :isDarkTheme="isDarkTheme" />
   </div>
 </template>
 
 <style scoped>
 /* Import the dashboard styles */
-@import '@/assets/dashboard.css';
+@import "@/assets/dashboard.css";
 </style>
