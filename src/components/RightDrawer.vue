@@ -338,7 +338,7 @@
 import { ref } from "vue";
 import SvgIcon from "@/components/SvgIcon.vue";
 
-const props = defineProps({
+defineProps({
   isDarkTheme: {
     type: Boolean,
     default: false,
@@ -590,9 +590,9 @@ const handleCancel = () => {
   drawerOpen.value = false;
 };
 
-const handleClose = () => {
-  drawerOpen.value = false;
-};
+// const handleClose = () => {
+//   drawerOpen.value = false;
+// };
 </script>
 
 <style scoped>
