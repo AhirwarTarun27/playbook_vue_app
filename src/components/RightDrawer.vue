@@ -10,8 +10,17 @@
     <div class="drawer-container">
       <!-- Header -->
       <div class="drawer-header">
-        <div class="header-left">
-          <h1 class="drawer-title">Today's To-Dos</h1>
+        <div>
+          <h2 class="panel-title">Today's To-Dos</h2>
+          <p class="panel-subtitle">
+            {{
+              new Intl.DateTimeFormat("en", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              }).format(date)
+            }}
+          </p>
         </div>
         <div class="header-right">
           <v-btn icon size="small" variant="text" class="header-icon-btn"
@@ -107,8 +116,6 @@
       </div>
 
       <div class="drawer-content">
-        <p class="date-subtitle">{{ getSelectedDateInfo() }}, 2025</p>
-
         <!-- Date Selector -->
         <div class="date-selector">
           <div

@@ -371,7 +371,6 @@
 }
 
 .no-task-indicator {
-  margin-top: 16px;
   display: flex;
   justify-content: center;
 }
@@ -381,8 +380,13 @@
   color: var(--drawer-text-secondary);
   font-style: italic;
 }
-
 /* Completed Tasks */
+.panel-title {
+  color: var(--drawer-text);
+}
+.panel-subtitle {
+  color: var(--drawer-text);
+}
 .completed-tasks {
   display: flex;
   flex-direction: column;
