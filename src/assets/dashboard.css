@@ -2,7 +2,7 @@
 :root {
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
-  --bg-sidebar: #30313f;
+  --bg-sidebar: #1a1a1a;
   --text-primary: #1a1a1a;
   --text-secondary: #6b7280;
   --text-light: #9ca3af;
@@ -351,7 +351,7 @@
 }
 
 .card-selected {
-  background: #131318;
+  background: #303030;
   color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
