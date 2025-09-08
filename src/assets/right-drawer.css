@@ -668,6 +668,7 @@
   background-color: white;
   height: 11px;
   width: 11px;
+  min-width: 11px !important;
 }
 
 .todos-drawer :deep(.v-checkbox .v-selection-control__input) {
