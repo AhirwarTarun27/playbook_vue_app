@@ -13,7 +13,7 @@
 }
 
 /* Dark theme */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --drawer-bg: #1f2937;
   --drawer-text: rgba(255, 255, 255, 0.9);
   --drawer-text-secondary: #d1d5db;
@@ -39,6 +39,8 @@
   flex-direction: column;
   height: 100%;
   background: var(--drawer-bg);
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
 }
 
 /* Header Styles */
@@ -59,8 +61,8 @@
 .drawer-title {
   color: var(--drawer-text-secondary);
   font-feature-settings:
-    'liga' off,
-    'clig' off;
+    "liga" off,
+    "clig" off;
 
   /* Heading/heading-lg */
   font-family: Inter;
@@ -256,30 +258,24 @@
   gap: 8px;
 }
 
-.task-checkbox {
-  flex-shrink: 0;
-  margin-right: 5px;
+/* Target the actual box outline of the checkbox */
+.task-checkbox .v-selection-control__input .v-icon svg path {
+  fill: white !important; /* force white box */
+  stroke: var(--v-border-color, #ccc); /* border that adapts to theme */
+  stroke-width: 1.5;
 }
 
-.task-checkbox .v-input__control {
-  min-height: auto !important;
+/* When checked: keep box white, only tick mark gets theme color */
+.task-checkbox
+  .v-selection-control__input.v-selection-control--dirty
+  .v-icon
+  svg
+  path {
+  fill: white !important; /* still white */
 }
 
-.task-checkbox .v-selection-control {
-  min-height: auto !important;
-}
-
-.task-checkbox .v-selection-control__wrapper {
-  height: 18px !important;
-  width: 18px !important;
-}
-
-.task-checkbox .v-selection-control__input {
-  color: #1e2731 !important;
-}
-
-.task-checkbox .v-selection-control__input .v-icon {
-  font-size: 18px !important;
+.task-checkbox .v-selection-control__input.v-selection-control--dirty .v-icon {
+  color: var(--v-theme-primary) !important; /* tick color */
 }
 
 .task-item {
@@ -308,6 +304,9 @@
 
 .task-blue {
   background: #e0f1fe;
+}
+.task-blue i .mdi-checkbox-blank-outline {
+  background-color: white;
 }
 
 .task-blue .task-title {
@@ -475,8 +474,8 @@
 .cancel-btn-text {
   color: #303030;
   font-feature-settings:
-    'liga' off,
-    'clig' off;
+    "liga" off,
+    "clig" off;
 
   /* Body/body-sm/medium */
   font-family: Inter;
@@ -503,7 +502,7 @@
 }
 .btn-text {
   color: #ffffff;
-  font-family: 'SF Pro';
+  font-family: "SF Pro";
   font-size: 12px;
   font-style: normal;
   font-weight: 590;
@@ -533,6 +532,7 @@
   min-width: 280px;
   max-width: 320px;
   border: 1px solid var(--drawer-border);
+  margin: 0 auto;
 }
 
 .date-picker-header {
@@ -665,6 +665,9 @@
 .todos-drawer :deep(.v-selection-control__input .v-icon) {
   color: #1e2731 !important;
   font-size: 18px !important;
+  background-color: white;
+  height: 11px;
+  width: 11px;
 }
 
 .todos-drawer :deep(.v-checkbox .v-selection-control__input) {

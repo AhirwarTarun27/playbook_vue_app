@@ -5,6 +5,7 @@
     width="450"
     temporary
     class="todos-drawer"
+    style="border-bottom-right-radius: 40px; border-top-right-radius: 40px"
     :class="{ 'dark-theme': isDarkTheme }"
   >
     <div class="drawer-container">
@@ -174,7 +175,7 @@
           <!-- Time Slots -->
           <div class="time-slots">
             <div
-              v-for="(timeSlot) in timeSlots"
+              v-for="timeSlot in timeSlots"
               :key="timeSlot"
               class="time-slot-container"
             >
@@ -202,18 +203,21 @@
                         opacity: getTaskForTime(timeSlot).completed ? 0.7 : 1,
                       }"
                     >
-                      <v-checkbox
-                        :model-value="getTaskForTime(timeSlot).completed"
-                        @update:model-value="
-                          handleUpcomingTaskToggle(
-                            getTaskForTime(timeSlot).id,
-                            selectedDate
-                          )
-                        "
-                        density="compact"
-                        hide-details
-                        class="task-checkbox"
-                      ></v-checkbox>
+                      <div>
+                        <v-checkbox
+                          :model-value="getTaskForTime(timeSlot).completed"
+                          @update:model-value="
+                            handleUpcomingTaskToggle(
+                              getTaskForTime(timeSlot).id,
+                              selectedDate
+                            )
+                          "
+                          density="compact"
+                          hide-details
+                          color="primary"
+                          class="task-checkbox"
+                        ></v-checkbox>
+                      </div>
                       <span
                         class="task-title"
                         :style="{
