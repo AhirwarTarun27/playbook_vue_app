@@ -349,12 +349,13 @@
             size="small"
             variant="text"
             @click="handleMonthChange('prev')"
-            class="month-nav-btn"
+            
           >
             <SvgIcon
               name="chevron-left"
               :color="isDarkTheme ? '#ffffff' : '#1a1a1a'"
               size="md"
+              class="arrow-icon"
             />
           </v-btn>
 
@@ -367,12 +368,13 @@
             size="small"
             variant="text"
             @click="handleMonthChange('next')"
-            class="month-nav-btn"
+            
           >
             <SvgIcon
               name="chevron-right"
               :color="isDarkTheme ? '#ffffff' : '#1a1a1a'"
               size="md"
+              class="arrow-icon"
             />
           </v-btn>
         </div>
