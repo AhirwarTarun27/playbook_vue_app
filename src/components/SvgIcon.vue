@@ -56,6 +56,8 @@ import DollarIcon from "@/assets/icons/DollarIcon.vue";
 import PeopleIcon from "@/assets/icons/tableFilters/PeopleIcon.vue";
 import DrawerOpenIcon from "@/assets/icons/DrawerOpenIcon.vue";
 // import HelpIcon from '@/assets/icons/HelpIcon.vue'
+import TodoTriggerClose from "@/assets/icons/TodoTriggerClose.vue";
+import TodoTriggerOpen from "@/assets/icons/TodoTriggerOpen.vue";
 
 export default {
   name: "SvgIcon",
@@ -103,6 +105,8 @@ export default {
     DotsVerticalIcon,
     ChevronLeftIcon,
     ChevronRightIcon,
+    TodoTriggerClose,
+    TodoTriggerOpen,
     // HelpIcon
   },
   props: {
@@ -145,6 +149,8 @@ export default {
           "chevron-left",
           "chevron-right",
           "help",
+          "todo-trigger-close",
+          "todo-trigger-open",
         ].includes(value),
     },
     size: {
@@ -217,6 +223,8 @@ export default {
         "chevron-left": "ChevronLeftIcon",
         "chevron-right": "ChevronRightIcon",
         help: "HelpIcon",
+        "todo-trigger-close": "TodoTriggerClose",
+        "todo-trigger-open": "TodoTriggerOpen",
       };
       return iconMap[this.name] || "HomeIcon";
     },

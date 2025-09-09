@@ -8,6 +8,20 @@
     style="border-bottom-right-radius: 40px; border-top-right-radius: 40px"
     :class="{ 'dark-theme': isDarkTheme }"
   >
+    <!-- Floating Close Button (inside drawer container, but visually outside) -->
+    <transition name="drawer-toggle">
+      <div
+        v-if="drawerOpen"
+        class="drawer-toggle-btn"
+        @click="drawerOpen = false"
+      >
+        <SvgIcon
+          name="todo-trigger-close"
+          :color="isDarkTheme ? '#374151' : '#6b7280'"
+          size="lg"
+        />
+      </div>
+    </transition>
     <div class="drawer-container">
       <!-- Header -->
       <div class="drawer-header">

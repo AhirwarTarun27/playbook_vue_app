@@ -706,6 +706,28 @@
 .drawer-content::-webkit-scrollbar-thumb:hover {
   background: var(--drawer-text-secondary);
 }
+.drawer-toggle-btn {
+  position: absolute;
+  top: 20%;
+  left: -35px; /* stick it outside drawer edge */
+  transform: translateY(-50%);
+}
+
+/* Smooth transition */
+.drawer-toggle-enter-active,
+.drawer-toggle-leave-active {
+  transition: all 0.3s ease;
+}
+
+.drawer-toggle-enter-from {
+  opacity: 0;
+  transform: translateY(-50%) translateX(20px);
+}
+
+.drawer-toggle-leave-to {
+  opacity: 0;
+  transform: translateY(-50%) translateX(20px);
+}
 
 /* Responsive adjustments */
 @media (max-width: 480px) {
