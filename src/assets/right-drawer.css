@@ -13,7 +13,7 @@
 }
 
 /* Dark theme */
-[data-theme="dark"] {
+[data-theme='dark'] {
   --drawer-bg: #1f2937;
   --drawer-text: rgba(255, 255, 255, 0.9);
   --drawer-text-secondary: #d1d5db;
@@ -61,8 +61,8 @@
 .drawer-title {
   color: var(--drawer-text-secondary);
   font-feature-settings:
-    "liga" off,
-    "clig" off;
+    'liga' off,
+    'clig' off;
 
   /* Heading/heading-lg */
   font-family: Inter;
@@ -475,8 +475,8 @@
 .cancel-btn-text {
   color: #303030;
   font-feature-settings:
-    "liga" off,
-    "clig" off;
+    'liga' off,
+    'clig' off;
 
   /* Body/body-sm/medium */
   font-family: Inter;
@@ -503,7 +503,7 @@
 }
 .btn-text {
   color: #ffffff;
-  font-family: "SF Pro";
+  font-family: 'SF Pro';
   font-size: 12px;
   font-style: normal;
   font-weight: 590;
