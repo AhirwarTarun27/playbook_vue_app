@@ -143,7 +143,7 @@
             <div class="date-circle">
               <span class="date-number">{{ option.date }}</span>
             </div>
-            <span class="date-day">{{ option.day }}</span>
+            <span class="date-day" :style="{ fontWeight: option.day === 'Tues' ? 800 : 200 }">{{ option.day }}</span>
           </div>
         </div>
 
