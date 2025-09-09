@@ -706,10 +706,14 @@
 .drawer-content::-webkit-scrollbar-thumb:hover {
   background: var(--drawer-text-secondary);
 }
+.drawer-toggle-btn svg {
+  height: 42px;
+  width: 42px;
+}
 .drawer-toggle-btn {
   position: absolute;
-  top: 20%;
-  left: -35px; /* stick it outside drawer edge */
+  top: 135px;
+  left: -42px; /* stick it outside drawer edge */
   transform: translateY(-50%);
 }
 
