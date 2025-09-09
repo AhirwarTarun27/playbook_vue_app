@@ -388,7 +388,8 @@
   color: var(--drawer-text);
 }
 .panel-subtitle {
-  color: var(--drawer-text);
+  color: grey;
+  font-size: 14px;
 }
 .completed-tasks {
   display: flex;
