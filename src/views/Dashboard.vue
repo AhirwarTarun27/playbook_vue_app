@@ -103,6 +103,7 @@ const toggleTheme = () => {
 // Initialize theme
 onMounted(() => {
   document.documentElement.setAttribute("data-theme", "light");
+   document.documentElement.style.overflowY = 'auto';
 });
 
 const toggleFilter = (filter) => {
