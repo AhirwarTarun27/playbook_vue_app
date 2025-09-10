@@ -92,13 +92,13 @@ const items = ref([
 ]);
 
 // Theme switching
-const toggleTheme = () => {
-  isDarkTheme.value = !isDarkTheme.value;
-  document.documentElement.setAttribute(
-    "data-theme",
-    isDarkTheme.value ? "dark" : "light"
-  );
-};
+// const toggleTheme = () => {
+//   isDarkTheme.value = !isDarkTheme.value;
+//   document.documentElement.setAttribute(
+//     "data-theme",
+//     isDarkTheme.value ? "dark" : "light"
+//   );
+// };
 
 // Initialize theme
 onMounted(() => {
@@ -126,7 +126,7 @@ const clearFilters = () => {
         <SvgIcon
           name="home"
           style="
-            width: 30.245px;
+            width: 36.245px;
             height: 37.593px;
             flex-shrink: 0;
             aspect-ratio: 30.24/37.59;
@@ -231,13 +231,13 @@ const clearFilters = () => {
             
 
             <!-- Theme Toggle -->
-            <div class="theme-toggle" @click="toggleTheme">
+            <!-- <div class="theme-toggle" @click="toggleTheme">
               <SvgIcon
                 :name="isDarkTheme ? 'moon' : 'sun'"
                 :color="isDarkTheme ? 'black' : 'white'"
                 size="sm"
               />
-            </div>
+            </div> -->
           </div>
 
           <!-- User Avatar Section -->
