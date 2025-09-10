@@ -670,7 +670,7 @@
 .todos-drawer :deep(.v-selection-control__input .v-icon) {
   color: #1e2731 !important;
   font-size: 18px !important;
-  background-color: white;
+  /* background-color: white; */
   height: 11px;
   width: 11px;
   min-width: 11px !important;
