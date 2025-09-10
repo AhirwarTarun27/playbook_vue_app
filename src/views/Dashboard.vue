@@ -140,48 +140,48 @@ const clearFilters = () => {
         <div class="sidebar-icon">
           <SvgIcon
             name="dashboard"
-            :color="isDarkTheme ? '#374151' : 'white'"
+            :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'"
           />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="users" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="users" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="building" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="building" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="borderline"></div>
         <div class="sidebar-icon">
-          <SvgIcon name="user" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="user" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="sidebar-icon" style="margin-left: 0.4rem">
-          <SvgIcon name="file" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="file" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="lock" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="lock" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="wrench" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="wrench" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="msg" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="msg" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="phone" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="phone" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="calender" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="calender" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="sidebar-icon">
           <SvgIcon
             name="three-verticle-line"
-            :color="isDarkTheme ? '#374151' : 'white'"
+            :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'"
           />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="clipbord" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="clipbord" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="upgraph" :color="isDarkTheme ? '#374151' : 'white'" />
+          <SvgIcon name="upgraph" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="borderline"></div>
       </div>
@@ -292,7 +292,7 @@ const clearFilters = () => {
                   <SvgIcon
                     name="book"
                     color="white"
-                    style="width: 17px; height: 21px"
+                    style="width: 19px; height: 21px"
                   />
                 </div>
                 <div class="card-info">
@@ -304,7 +304,7 @@ const clearFilters = () => {
               <!-- Hard Hat Card -->
               <div class="card">
                 <div class="icon-circle">
-                  <SvgIcon  style="width: 17px; height: 21px" />
+                  <SvgIcon  style="width: 19px; height: 21px" />
                 </div>
                 <div class="card-info">
                   <div class="label">16</div>
@@ -315,7 +315,7 @@ const clearFilters = () => {
               <!-- Affordable Card -->
               <div class="card">
                 <div class="icon-circle">
-                  <SvgIcon name="dollar" style="width: 17px; height: 21px" />
+                  <SvgIcon name="dollar" style="width: 16px; height: 22px" />
                 </div>
                 <div class="card-info">
                   <div class="label">34</div>
@@ -326,7 +326,7 @@ const clearFilters = () => {
               <!-- Multi-Family Card -->
               <div class="card">
                 <div class="icon-circle">
-                  <SvgIcon name="people" style="width: 17px; height: 21px" />
+                  <SvgIcon name="people" style="width: 16.5px; height: 21px" />
                 </div>
                 <div class="card-info">
                   <div class="label">120</div>
@@ -339,7 +339,7 @@ const clearFilters = () => {
               <div class="add-card" >
                 <div class="action-add-btn">
                   <v-btn icon size="small">
-                    <SvgIcon name="plus" size="sm" color="white" />
+                    <SvgIcon name="plus" color="white" />
                   </v-btn>
                 </div>
               </div>
