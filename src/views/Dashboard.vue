@@ -222,8 +222,8 @@ const clearFilters = () => {
               class="action-add-btn"
               style="margin-bottom: .4rem;     margin-bottom: 0.1rem;"
             >
-              <v-btn icon>
-                <SvgIcon name="plus" size="sm" />
+              <v-btn icon >
+                <SvgIcon name="plus"  />
               </v-btn>
             </div>
 
