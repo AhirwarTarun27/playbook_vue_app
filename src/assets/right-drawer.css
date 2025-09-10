@@ -381,7 +381,6 @@
 .no-task-text {
   font-size: 12px;
   color: var(--drawer-text-secondary);
-  font-style: italic;
 }
 /* Completed Tasks */
 .panel-title {
