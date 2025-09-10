@@ -5,7 +5,7 @@
     width="450"
     temporary
     class="todos-drawer"
-    style="border-bottom-right-radius: 40px; border-top-right-radius: 40px"
+    style="border-bottom-right-radius: 30px; border-top-right-radius: 30px"
     :class="{ 'dark-theme': isDarkTheme }"
   >
     <!-- Floating Close Button (inside drawer container, but visually outside) -->
