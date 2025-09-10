@@ -54,6 +54,11 @@
   background: var(--bg-sidebar);
 }
 
+/* .app-layout .v-navigation-drawer__scrim {
+  background: rgba(0, 0, 0, 0.5) !important;
+  opacity: 0 !important;
+} */
+
 .sidebar {
   width: 91px;
   background: var(--bg-sidebar);
@@ -141,6 +146,7 @@
 
 .search-wrap {
   position: relative;
+  margin-right: 0.5rem;
 }
 
 .search-input {
@@ -189,15 +195,15 @@
 .topbar-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
 }
 
 .action-add-btn .v-btn {
   background: var(--brand) !important;
   /* border-radius: 50% !important; */
 
-  width: 1.5625rem;
-  height: 1.5625rem;
+  width: 1.3rem;
+  height: 1.3rem;
   /* flex-shrink: 0; */
   /* aspect-ratio: 1/1; */
   box-shadow: none !important;
