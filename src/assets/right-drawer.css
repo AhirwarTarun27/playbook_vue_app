@@ -39,8 +39,8 @@
   flex-direction: column;
   height: 100%;
   background: var(--drawer-bg);
-  border-top-right-radius: 40px;
-  border-bottom-right-radius: 40px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 /* Header Styles */
