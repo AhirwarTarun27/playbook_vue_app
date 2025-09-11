@@ -327,28 +327,26 @@
 
           <!-- Notes Section -->
           <h4 class="notes-title">Notes</h4>
-          <!-- <v-textarea
-            v-model="notes"
-            rows="3"
-            no-resize
-            variant="outlined"
-            class="notes-textarea"
-            hide-details
-          ></v-textarea> -->
-          <v-textarea
-            v-model="notes"
-            rows="3"
-            no-resize
-            hide-details
-            variant="outlined"
-            style="
-              width: 100%;
-              margin-bottom: 12px;
-              border-radius: 8px;
-              background-color: #f7f7f7;
-              font-size: 13px;
-            "
-          ></v-textarea>
+          <div class="notes-box">
+            <v-textarea
+              v-model="notes"
+              rows="3"
+              no-resize
+              hide-details
+              variant="outlined"
+              style="
+                width: 100%;
+                margin-bottom: 12px;
+                border-radius: 8px;
+                background-color: #f7f7f7;
+                font-size: 13px;
+                line-height: 20px;
+                /* height: 72px; 
+              border: '2px solid #d1d5db', */
+                padding: 8px 12px;
+              "
+            ></v-textarea>
+          </div>
         </div>
       </div>
 

@@ -361,6 +361,20 @@
   font-weight: bold;
 }
 
+.notes-box .v-input{
+   border: none !important;
+ background-color: white !important;
+}
+
+.notes-box .v-input__control{
+ width: 100%;
+height: 150px;
+flex-shrink: 0;
+ border-radius: 8px;
+border: 1px solid #D3D3D3;
+background: #F7F7F7;
+}
+
 .end-time {
   font-size: 12px;
   font-weight: 500;
