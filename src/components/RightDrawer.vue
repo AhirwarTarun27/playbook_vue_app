@@ -170,7 +170,7 @@
               >
                 <SvgIcon
                   name="chevron-down"
-                  :color="isDarkTheme ? '#d1d5db' : '#1a1a1a'"
+                  :color="'black'"
                   size="md"
                 />
               </div>
@@ -181,7 +181,7 @@
               @click="handleAddTask"
               class="add-task-btn"
             >
-              <span class="mr-1">+</span>
+              <span class="mr-1" style="font-weight: 700;">+</span>
               Add Task
             </v-btn>
           </div>
@@ -198,7 +198,7 @@
                 style="
                   display: flex;
                   width: 100%;
-                  align-items: end;
+                  align-items: center;
                   justify-content: center;
                 "
               >
