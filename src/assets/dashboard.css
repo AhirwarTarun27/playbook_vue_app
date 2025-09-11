@@ -632,6 +632,7 @@ thead th {
   display: flex;
   align-items: center;
   gap: 6px;
+  margin-top: -1px;
 }
 
 thead th:first-child {
