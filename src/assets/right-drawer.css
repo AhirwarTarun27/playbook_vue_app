@@ -346,7 +346,6 @@
 .task-right {
   display: flex;
   align-items: center;
-  
 }
 
 .task-badge {
@@ -664,6 +663,10 @@
 
 .dark-theme .v-icon {
   color: currentColor !important;
+}
+
+.v-navigation-drawer--temporary.v-navigation-drawer--active {
+  box-shadow: none !important;
 }
 
 /* Checkbox styling to match StyledCheckbox */
