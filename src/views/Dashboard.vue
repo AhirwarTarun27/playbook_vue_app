@@ -156,7 +156,7 @@ const clearFilters = () => {
         <div class="sidebar-icon" style="margin-left: 0.4rem">
           <SvgIcon name="file" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
-        <div class="sidebar-icon">
+        <div class="sidebar-icon lock-icon">
           <SvgIcon name="lock" :color="isDarkTheme ? '#374151' : 'rgb(205 204 204)'" />
         </div>
         <div class="sidebar-icon">
