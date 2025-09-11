@@ -369,38 +369,32 @@
     >
       <div class="date-picker" @click.stop>
         <!-- Date Picker Header -->
-        <div class="date-picker-header">
-          <v-btn
-            icon
-            size="small"
-            variant="text"
-            @click="handleMonthChange('prev')"
-          >
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 31px;
+            margin-top: 7px;
+            padding: 0 12px;
+          "
+        >
+          <div class="arrow-icon-container" @click="handleMonthChange('prev')">
             <SvgIcon
               name="chevron-left"
               :color="isDarkTheme ? '#ffffff' : '#1a1a1a'"
               size="md"
               class="arrow-icon"
             />
-          </v-btn>
+          </div>
 
-          <h4 class="month-year">
+          <h4 class="month-year" style="margin-top: 1px">
             {{ getMonthYearString() }}
           </h4>
 
-          <v-btn
-            icon
-            size="small"
-            variant="text"
-            @click="handleMonthChange('next')"
-          >
-            <SvgIcon
-              name="chevron-right"
-              :color="isDarkTheme ? '#ffffff' : '#1a1a1a'"
-              size="md"
-              class="arrow-icon"
-            />
-          </v-btn>
+          <div class="arrow-icon-container" @click="handleMonthChange('next')">
+            <SvgIcon name="chevron-right" size="md" class="arrow-icon" />
+          </div>
         </div>
 
         <!-- Days of Week Header -->

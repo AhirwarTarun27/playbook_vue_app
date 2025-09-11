@@ -405,6 +405,7 @@ background: #F7F7F7;
 }
 /* Completed Tasks */
 .panel-title {
+  font-weight: 900;
   color: var(--drawer-text);
 }
 .panel-subtitle {
@@ -546,13 +547,14 @@ background: #F7F7F7;
 
 .date-picker {
   background: var(--drawer-surface);
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0 4px 12px var(--drawer-shadow);
   padding: 16px;
   min-width: 280px;
   max-width: 320px;
   border: 1px solid var(--drawer-border);
   margin: 0 auto;
+  height: 300px;
 }
 
 .date-picker-header {
@@ -562,17 +564,27 @@ background: #F7F7F7;
   margin-bottom: 16px;
 }
 
+.arrow-icon-container svg{
+width: 20px;
+height: 20px;
+color: black;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+
 .month-nav-btn {
   width: 32px !important;
   height: 32px !important;
   color: var(--drawer-text) !important;
 }
-
+/* 
 .arrow-icon {
   width: 16px !important;
   height: 16px !important;
   color: grey !important;
-}
+} */
 
 .month-year {
   font-size: 16px;
@@ -591,8 +603,8 @@ background: #F7F7F7;
 .day-header {
   text-align: center;
   font-size: 12px;
-  color: var(--drawer-text-secondary);
-  font-weight: 500;
+  color: grey;
+  font-weight: 900;
   padding: 4px;
 }
 
