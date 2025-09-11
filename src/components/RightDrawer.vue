@@ -5,7 +5,11 @@
     width="450"
     temporary
     class="todos-drawer"
-    style="border-bottom-right-radius: 30px; border-top-right-radius: 30px; opacity: none;"
+    style="
+      border-bottom-right-radius: 30px;
+      border-top-right-radius: 30px;
+      opacity: none;
+    "
     :class="{ 'dark-theme': isDarkTheme }"
   >
     <!-- Floating Close Button (inside drawer container, but visually outside) -->
@@ -143,7 +147,11 @@
             <div class="date-circle">
               <span class="date-number">{{ option.date }}</span>
             </div>
-            <span class="date-day" :style="{ fontWeight: option.day === 'Tues' ? 800 : 200 }">{{ option.day }}</span>
+            <span
+              class="date-day"
+              :style="{ fontWeight: option.day === 'Tues' ? 800 : 200 }"
+              >{{ option.day }}</span
+            >
           </div>
         </div>
 
@@ -168,11 +176,7 @@
                   align-items: center;
                 "
               >
-                <SvgIcon
-                  name="chevron-down"
-                  :color="'black'"
-                  size="md"
-                />
+                <SvgIcon name="chevron-down" :color="'black'" size="md" />
               </div>
             </div>
             <v-btn
@@ -181,7 +185,7 @@
               @click="handleAddTask"
               class="add-task-btn"
             >
-              <span class="mr-1" style="font-weight: 700;">+</span>
+              <span class="mr-1" style="font-weight: 700">+</span>
               Add Task
             </v-btn>
           </div>
@@ -198,6 +202,7 @@
                 style="
                   display: flex;
                   width: 100%;
+                  /* margin-top: 0.8px; */
                   align-items: center;
                   justify-content: center;
                 "
@@ -217,7 +222,14 @@
                         opacity: getTaskForTime(timeSlot).completed ? 0.7 : 1,
                       }"
                     >
-                      <div>
+                      <!-- checkbox with task -->
+                      <div
+                        style="
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                        "
+                      >
                         <v-checkbox
                           :model-value="getTaskForTime(timeSlot).completed"
                           @update:model-value="
@@ -231,17 +243,18 @@
                           color="primary"
                           class="task-checkbox"
                         ></v-checkbox>
+                        <span
+                          class="task-title"
+                          :style="{
+                            textDecoration: getTaskForTime(timeSlot).completed
+                              ? 'line-through'
+                              : 'none',
+                          }"
+                        >
+                          {{ getTaskForTime(timeSlot).title }}
+                        </span>
                       </div>
-                      <span
-                        class="task-title"
-                        :style="{
-                          textDecoration: getTaskForTime(timeSlot).completed
-                            ? 'line-through'
-                            : 'none',
-                        }"
-                      >
-                        {{ getTaskForTime(timeSlot).title }}
-                      </span>
+
                       <div class="task-right">
                         <span
                           v-if="getTaskForTime(timeSlot).endTime"
@@ -282,6 +295,7 @@
             <div
               style="
                 margin-left: 4px;
+
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -312,14 +326,28 @@
           </div>
 
           <!-- Notes Section -->
-          <h4 class="section-title notes-title">Notes</h4>
-          <v-textarea
+          <h4 class="notes-title">Notes</h4>
+          <!-- <v-textarea
             v-model="notes"
             rows="3"
             no-resize
             variant="outlined"
             class="notes-textarea"
             hide-details
+          ></v-textarea> -->
+          <v-textarea
+            v-model="notes"
+            rows="3"
+            no-resize
+            hide-details
+            variant="outlined"
+            style="
+              width: 100%;
+              margin-bottom: 12px;
+              border-radius: 8px;
+              background-color: #f7f7f7;
+              font-size: 13px;
+            "
           ></v-textarea>
         </div>
       </div>
@@ -349,7 +377,6 @@
             size="small"
             variant="text"
             @click="handleMonthChange('prev')"
-            
           >
             <SvgIcon
               name="chevron-left"
@@ -368,7 +395,6 @@
             size="small"
             variant="text"
             @click="handleMonthChange('next')"
-            
           >
             <SvgIcon
               name="chevron-right"
@@ -488,15 +514,6 @@ const upcomingTasksData = ref({
       title: "Maintenance #1232",
       time: "12 pm",
       endTime: "12:15 pm",
-      color: "yellow",
-      type: "maintenance",
-      completed: false,
-    },
-    {
-      id: "22-4",
-      title: "Maintenance #2543",
-      time: "2 pm",
-      endTime: "2:15 pm",
       color: "yellow",
       type: "maintenance",
       completed: false,
