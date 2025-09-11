@@ -190,11 +190,11 @@ const clearFilters = () => {
         <div class="sidebar-icon">
           <SvgIcon
             name="settings"
-            :color="isDarkTheme ? '#374151' : '#9CA3AF'"
+            :color="isDarkTheme ? '#374151' : 'rgb(205, 204, 204)'"
           />
         </div>
         <div class="sidebar-icon">
-          <SvgIcon name="info" :color="isDarkTheme ? '#374151' : '#9CA3AF'" />
+          <SvgIcon name="info" :color="isDarkTheme ? '#374151' : 'rgb(205, 204, 204)'" />
         </div>
       </div>
     </aside>
