@@ -391,7 +391,23 @@ const clearFilters = () => {
               <div class="add-card">
                 <div class="action-add-btn">
                   <v-btn icon size="small">
-                    <SvgIcon name="plus" color="white" />
+                    <!-- <SvgIcon name="plus" color="white" /> -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                    >
+                      <!-- Green circle -->
+                      <circle cx="12.5" cy="12.5" r="12.5" fill="#86CF37" />
+
+                      <!-- Plus icon -->
+                      <path
+                        d="M13.25 8.5C13.25 8.08579 12.9142 7.75 12.5 7.75C12.0858 7.75 11.75 8.08579 11.75 8.5V11.75H8.5C8.08579 11.75 7.75 12.0858 7.75 12.5C7.75 12.9142 8.08579 13.25 8.5 13.25H11.75V16.5C11.75 16.9142 12.0858 17.25 12.5 17.25C12.9142 17.25 13.25 16.9142 13.25 16.5V13.25H16.5C16.9142 13.25 17.25 12.9142 17.25 12.5C17.25 12.0858 16.9142 11.75 16.5 11.75H13.25V8.5Z"
+                        fill="#4a4a4a"
+                      />
+                    </svg>
                   </v-btn>
                 </div>
               </div>
