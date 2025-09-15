@@ -295,8 +295,8 @@ const clearFilters = () => {
             >
               <SvgIcon name="bell" :color="isDarkTheme ? '#374151' : 'white'" />
             </div>
-            <div class="user-info">
-              Naomi R.
+            <div>
+              <span class="user-info">Naomi R.</span>
               <div class="avatar-ring">
                 <img src="../assets/icons/portrait06.png" alt="" />
               </div>
